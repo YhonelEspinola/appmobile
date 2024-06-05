@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="fondo">#fefce8</color>
+    <color name="primary">#16a34a</color>
+    <color name="marca">#AFAFAF</color>
+    <color name="car">#FFEB3B</color>
+    <color name="enlaces">#ca8a04</color>
+
+</resources>
