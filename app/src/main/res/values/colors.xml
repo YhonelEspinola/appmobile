@@ -2,10 +2,15 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="heart">#E11E1E</color>
     <color name="fondo">#fefce8</color>
     <color name="primary">#16a34a</color>
     <color name="marca">#AFAFAF</color>
     <color name="car">#FFEB3B</color>
     <color name="enlaces">#ca8a04</color>
-
+    <color name="button_admid_create">#F1EF99</color>
+    <color name="button_admin_ver">#AAD7D9</color>
+    <color name="button_admin_pedidos">#D2E0FB</color>
+    <color name="button_inferior">#885EEC</color>
+    <color name="pedidos">#D3FAF8F8</color>
 </resources>
