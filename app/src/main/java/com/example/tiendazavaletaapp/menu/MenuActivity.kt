@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.tiendazavaletaapp.R
+import com.example.tiendazavaletaapp.carrito.CarritoFragment
 import com.example.tiendazavaletaapp.recyclermain.MasVendidosFragment
 import com.example.tiendazavaletaapp.recyclerwish.WishFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -18,6 +19,12 @@ class MenuActivity: AppCompatActivity() {
             when (it.itemId) {
                 R.id.itemHome -> {
                     val fragment = MasVendidosFragment.newInstance()
+                    openFragment(fragment)
+                    true
+                }
+
+                R.id.itemCar -> {
+                    val fragment = CarritoFragment.newInstance()
                     openFragment(fragment)
                     true
                 }

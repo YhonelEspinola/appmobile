@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="165dp"
+        android:layout_width="180dp"
         android:layout_height="match_parent"
         app:cardCornerRadius="10dp"
         android:layout_margin="10dp"
@@ -14,12 +14,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-
+            android:background="@color/gray"
+            android:paddingBottom="10dp"
             >
             <ImageView
                 android:id="@+id/imgProducto"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="175dp"
                 android:src="@mipmap/ic_launcher"
                 android:scaleType="centerCrop"/>
 
@@ -38,10 +39,9 @@
                 android:id="@+id/textTitulo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
                 android:textStyle="bold"
                 android:text="Titulo"
-                android:layout_marginLeft="5dp"/>
+                android:layout_margin="5dp"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -51,7 +51,6 @@
                     android:id="@+id/textPrecio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
                     android:text="S/0.00"
 
                     />
@@ -59,7 +58,6 @@
                     android:id="@+id/textCategoria"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
                     android:text="Categoria"
                     android:layout_alignParentEnd="true"
                     />

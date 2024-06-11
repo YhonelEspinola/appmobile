@@ -6,89 +6,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@color/fondo"
-    android:fitsSystemWindows="true">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        android:id="@+id/cabecera"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:background="@color/primary">
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_margin="16dp"
-            >
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/search"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Buscar"
-                android:background="@drawable/cabecera"
-                />
-
-        </com.google.android.material.textfield.TextInputLayout>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:src="@drawable/car"
-            app:tint="@color/car"
-            />
-
-    </LinearLayout>
+    android:fitsSystemWindows="true"
+    >
 
     <LinearLayout
         android:id="@+id/categorias"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/cabecera"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="10dp">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingRight="16dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Inicio"
-                android:textStyle="bold"
-                android:textSize="17sp"
-                android:textColor="@color/enlaces" />
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="3dp"
-                android:background="@color/enlaces"
-                android:layout_marginBottom="4dp"/>
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:gravity="center_vertical">
 
-        </LinearLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/bottom"
+            android:text="Inicio"
+            android:textSize="15dp"
+            android:layout_marginEnd="10dp"
+            />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerCategorias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/item_categorias"
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Categoría1"
-            android:textStyle="bold"
-            android:textSize="17dp"
-            android:layout_marginEnd="16dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Categoría2"
-            android:textStyle="bold"
-            android:textSize="17dp"
-            android:layout_marginEnd="16dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="17dp"
-            android:text="Categoría3"/>
+            />
+
     </LinearLayout>
 
     <LinearLayout
@@ -99,30 +47,34 @@
         app:layout_constraintTop_toBottomOf="@+id/categorias"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="25dp"
         >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:text="Mas Vendido"
                 android:layout_weight="1"/>
+
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
+                android:layout_height="match_parent"
                 android:text="Ver todo >"
-                android:textColor="@color/enlaces"/>
+                android:textColor="@color/bottom"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            >
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerMasVendidos"
                 android:layout_width="match_parent"
@@ -142,12 +94,14 @@
         app:layout_constraintTop_toBottomOf="@+id/masVendidos"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="25dp"
         >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -159,7 +113,7 @@
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:text="Ver todo >"
-                android:textColor="@color/enlaces"/>
+                android:textColor="@color/bottom"/>
         </LinearLayout>
 
         <LinearLayout

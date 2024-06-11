@@ -5,7 +5,7 @@
     <color name="heart">#E11E1E</color>
     <color name="fondo">#fefce8</color>
     <color name="primary">#16a34a</color>
-    <color name="marca">#AFAFAF</color>
+    <color name="marca">#8E8E8E</color>
     <color name="car">#FFEB3B</color>
     <color name="enlaces">#ca8a04</color>
     <color name="button_admid_create">#F1EF99</color>
@@ -13,4 +13,10 @@
     <color name="button_admin_pedidos">#D2E0FB</color>
     <color name="button_inferior">#885EEC</color>
     <color name="pedidos">#D3FAF8F8</color>
+
+    <color name="menu">#601410</color>
+    <color name="graylight">#D3FAF8F8</color>
+    <color name="gray">#54DCDCDC</color>
+    <color name="bottom">#DC362E</color>
+    <color name="cabecera">#8C1D18</color>
 </resources>

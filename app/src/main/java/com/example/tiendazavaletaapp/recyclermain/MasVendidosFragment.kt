@@ -21,8 +21,24 @@ class MasVendidosFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val recyclerCategoria = view.findViewById<RecyclerView>(R.id.recyclerCategorias)
         val recyclerMasVendidos = view.findViewById<RecyclerView>(R.id.recyclerMasVendidos)
         val recyclerRecomendado = view.findViewById<RecyclerView>(R.id.recyclerRecomendado)
+
+        val listCategoria = listOf<Categoria>(
+            Categoria("Categoria1"),
+            Categoria("Categoria2"),
+            Categoria("Categoria3"),
+            Categoria("Categoria4"),
+            Categoria("Categoria5"),
+        )
+        val adapterC = CategoriaAdapter(listCategoria)
+        recyclerCategoria.adapter=adapterC
+        recyclerCategoria.layoutManager=
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
+
+
+
         val listProductos = listOf<MasVendidos>(
             MasVendidos("Marca","Titulo","Cateogria",0.00,R.drawable.img),
             MasVendidos("Marca","Titulo","Cateogria",0.00,R.drawable.img),
