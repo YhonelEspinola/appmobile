@@ -26,8 +26,8 @@ class PedidosViewHolder (inflater: LayoutInflater, viewGroup: ViewGroup):
     }
 
     fun bind(pedidos:Pedidos){
-        textCorreoCliente?.text=pedidos.CorreoUser
-        textEntregaTienda?.text= pedidos.EntregaTienda.toString()
+        textCorreoCliente?.text =pedidos.CorreoUser
+        textEntregaTienda?.text= pedidos.getEntrega(pedidos.EntregaTienda)
         textFechaCompra?.text=pedidos.FechaCompra
         textCodPedido?.text=pedidos.CodPedido
         textTotal?.text= pedidos.Total.toString()

@@ -5,5 +5,12 @@ data class Pedidos(
     val EntregaTienda:Boolean,
     val FechaCompra:String,
     val CodPedido:String,
-    val Total:Double
-)
+    val Total:Double){
+    fun getEntrega(EntregaTienda: Boolean):String{
+    if (EntregaTienda == true){
+             return "Si"
+        } else
+             return "No"
+    }
+}
+
