@@ -15,6 +15,7 @@
         android:duplicateParentState="true"
         app:itemIconTint="@color/icon_color_menu"
         app:itemTextColor="@color/icon_color_menu"
+
         />
 
     <FrameLayout

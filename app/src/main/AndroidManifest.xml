@@ -23,6 +23,7 @@
         </activity>
         <activity android:name=".pedidos.PedidosActivity"/>
         <activity android:name=".ProductosListaAdmin.ProductosListaAdminActivity"/>
+        <activity android:name=".Perfil.CambiarContraPerfilActivity"/>
 
     </application>
 

@@ -3,6 +3,7 @@ package com.example.tiendazavaletaapp.menu
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.tiendazavaletaapp.Perfil.PerfilFragment
 import com.example.tiendazavaletaapp.R
 import com.example.tiendazavaletaapp.carrito.CarritoFragment
 import com.example.tiendazavaletaapp.recyclermain.MasVendidosFragment
@@ -31,6 +32,12 @@ class MenuActivity: AppCompatActivity() {
 
                 R.id.itemWish -> {
                     val fragment = WishFragment.newInstance()
+                    openFragment(fragment)
+                    true
+                }
+
+                R.id.itemProfile -> {
+                    val fragment = PerfilFragment.newInstance()
                     openFragment(fragment)
                     true
                 }

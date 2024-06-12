@@ -7,22 +7,21 @@
    >
 
     <LinearLayout
-        android:id="@+id/prinCabezera"
-        android:layout_width="0dp"
+        android:id="@+id/prinCabecera"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:background="#f1f1f1"
+        android:padding="10dp"
+        android:background="@color/menu"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:gravity="center">
 
         <TextView
             android:id="@+id/header_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cuenta"
-            android:textSize="24sp"
+            android:textSize="25sp"
+            android:textColor="@color/white"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -31,8 +30,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="16dp"
-        app:layout_constraintTop_toBottomOf="@id/prinCabezera"
+        android:layout_margin="20dp"
+        app:layout_constraintTop_toBottomOf="@id/prinCabecera"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -65,16 +64,17 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp"
+        android:layout_margin="20dp"
         app:layout_constraintTop_toBottomOf="@id/userInfo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
+            android:id="@+id/miPerfil"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:orientation="horizontal"
-            android:padding="8dp"
+            android:gravity="center_vertical"
             android:clickable="true"
             android:focusable="true"
             android:background="?attr/selectableItemBackground">
@@ -89,19 +89,19 @@
                 android:layout_height="wrap_content"
                 android:text="Mi perfil"
                 android:paddingStart="16dp"
-                android:paddingLeft="16dp"
                 android:textSize="16sp" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/misCompras"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:orientation="horizontal"
-            android:padding="8dp"
+            android:gravity="center_vertical"
             android:clickable="true"
             android:focusable="true"
             android:background="?attr/selectableItemBackground"
-            android:layout_marginTop="10dp">
+            >
 
             <ImageView
                 android:layout_width="24dp"
@@ -113,18 +113,25 @@
                 android:layout_height="wrap_content"
                 android:text="Mis compras"
                 android:paddingStart="16dp"
-                android:paddingLeft="16dp"
                 android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>
+
+    <View
+        android:id="@+id/separador"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        app:layout_constraintTop_toBottomOf="@id/options"
+        android:background="@color/marca"
+        android:layout_margin="15dp"/>
 
     <LinearLayout
         android:id="@+id/contact_info"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/options"
+        android:layout_margin="20dp"
+        app:layout_constraintTop_toBottomOf="@id/separador"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -158,7 +165,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingStart="16dp"
-                android:paddingLeft="16dp">
+                >
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -170,9 +177,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="conversemos, estamos en línea"
-                    android:textSize="14sp"
-                    android:textColor="#888888" />
+                    android:hint="conversemos, estamos en línea" />
             </LinearLayout>
         </LinearLayout>
 
@@ -183,6 +188,8 @@
             android:padding="8dp"
             android:layout_marginTop="20dp"
             android:elevation="2dp"
+            android:clickable="true"
+            android:focusable="true"
             android:background="@drawable/bordeedt">
 
             <ImageView
@@ -196,7 +203,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingStart="16dp"
-                android:paddingLeft="16dp"
                 android:layout_marginTop="1dp">
 
                 <TextView
@@ -208,50 +214,53 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Escríbenos, estamos atentos a tus consultas"
-                    android:textSize="14sp"
-                    android:textColor="#888888" />
+                    android:hint="Escríbenos, estamos atentos a tus consultas"
+                    />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
 
     <LinearLayout
-        android:id="@+id/add_circle_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/verMas"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
         android:orientation="horizontal"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground"
         app:layout_constraintTop_toBottomOf="@id/contact_info"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp">
+        android:gravity="center_vertical"
+        android:layout_margin="20dp">
 
         <ImageView
 
-            android:layout_width="40dp"
+            android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@drawable/baseline_add_circle_outline_24" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="9dp"
             android:textColor="@color/black"
-            android:textStyle="bold"
             android:text="Ver más" />
     </LinearLayout>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/logout_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
-        android:background="@drawable/borde"
+        android:background="@drawable/button_background"
         android:text="Cerrar sesión"
+        android:layout_margin="10dp"
+        android:textColor="@color/bottom"
+        android:drawableStart="@drawable/car_icon"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/add_circle_icon" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
