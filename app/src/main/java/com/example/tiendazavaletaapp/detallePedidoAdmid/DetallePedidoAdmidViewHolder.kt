@@ -25,7 +25,7 @@ RecyclerView.ViewHolder(inflater.inflate(R.layout.item_detalle_pedido_admid, vie
 
     fun bind(detallePedido:DetallePedidoAdmid){
         textTitulo?.text=detallePedido.TituloItem
-        textCantidad?.text=String.format("%.2f", detallePedido.Cantidad)
+        textCantidad?.text=detallePedido.Cantidad.toString()
         textPrecioUnit?.text=String.format("%.2f", detallePedido.PrecioUnitario)
         textCodigo?.text=detallePedido.CodPedido
 
