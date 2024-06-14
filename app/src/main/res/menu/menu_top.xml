@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item
+        android:id="@+id/itemPagoEntrega"
+        android:title="Pago contra entrega"/>
+
+    <item
+        android:id="@+id/itemRecojoTienda"
+        android:title="Recojo en Tienda"/>
+
 </menu>
