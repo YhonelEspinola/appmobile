@@ -1,4 +1,4 @@
-package com.example.tiendazavaletaapp.detallePedidoAdmid
+package com.example.tiendazavaletaapp.detallePedidoUser
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tiendazavaletaapp.R
 
-class DetallePedidoAdmidViewHolder(inflater: LayoutInflater, viewGroup : ViewGroup) :
+class DetallePedidoUserViewHolder(inflater: LayoutInflater, viewGroup : ViewGroup) :
 RecyclerView.ViewHolder(inflater.inflate(R.layout.item_detalle_pedido, viewGroup , false)) {
 
     private var textTitulo : TextView?=null
@@ -23,7 +23,7 @@ RecyclerView.ViewHolder(inflater.inflate(R.layout.item_detalle_pedido, viewGroup
 
     }
 
-    fun bind(detallePedido:DetallePedidoAdmid){
+    fun bind(detallePedido:DetallePedidoUser){
         textTitulo?.text=detallePedido.TituloItem
         textCantidad?.text=detallePedido.Cantidad.toString()
         textPrecioUnit?.text=String.format("%.2f", detallePedido.PrecioUnitario)
