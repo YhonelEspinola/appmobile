@@ -91,7 +91,7 @@
                             android:drawableBottom="@drawable/edit_icon"
                             android:drawableTint="@color/white"
                             android:layout_alignParentEnd="true"
-                            android:backgroundTint="@color/primary"
+                            android:backgroundTint="@color/button_admin_pedidos"
                             />
                     </RelativeLayout>
 

@@ -13,7 +13,6 @@ import com.example.tiendazavaletaapp.gestionAdmid.GestionAdminActivity
 class ProductosListaAdminActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_productos_listadmin)
 
         val recyclerProductosListAdmin =findViewById<RecyclerView>(R.id.recyclerProductosListAdmin)

@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:fitsSystemWindows="true"
-    android:background="@color/fondo">
+    android:fitsSystemWindows="true">
 
     <LinearLayout
         android:id="@+id/cabecera"
@@ -22,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Crear Producto"
-            android:textColor="@color/primary"
+            android:textColor="@color/menu"
             android:textSize="25sp"
             android:textStyle="bold" />
 
@@ -30,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="4dp"
             android:layout_margin="10dp"
-            android:background="@color/primary" />
+            android:background="@color/menu" />
 
     </LinearLayout>
     <ImageView
@@ -42,6 +41,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="15dp"
         android:layout_marginLeft="15dp"
+        android:tint="@color/menu"
         />
     <ScrollView
         android:layout_width="match_parent"
@@ -82,9 +82,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Seleccionar imagen"
-                android:textColor="@color/enlaces"
+                android:textColor="@color/bottom"
                 android:textSize="16sp"
-                android:background="@drawable/btn_design"
+                android:background="@drawable/btn_design_selectimg"
                 android:textAllCaps="false"
                 />
         </LinearLayout>
@@ -106,8 +106,8 @@
                 android:id="@+id/edtTitulo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:padding="10dp"
                 android:hint="Ingresa el nombre del producto"
-                android:background="@drawable/edit_text"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <TextView
@@ -128,7 +128,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="Ingresa una marca"
-                android:background="@drawable/edit_text"
+                android:padding="10dp"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <TextView
@@ -142,15 +142,15 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginBottom="20dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             >
 
-            <com.google.android.material.textfield.TextInputEditText
+            <AutoCompleteTextView
                 android:id="@+id/edtCategoria"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="Selecciona una categoria"
-                android:background="@drawable/edit_text"
-                android:inputType=""
+                android:padding="10dp"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <TextView
@@ -171,7 +171,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="Ingresa el precio"
-                android:background="@drawable/edit_text"
+                android:padding="10dp"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -193,7 +193,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Ingrese una descripción"
-                android:background="@drawable/edit_text"
                 android:inputType="textMultiLine"
                 android:gravity="top|start"
                 />
@@ -206,7 +205,7 @@
             android:text="Crear"
             android:textSize="17sp"
             android:layout_marginBottom="50dp"
-            android:backgroundTint="@color/primary"/>
+            android:backgroundTint="@color/bottom"/>
 
     </LinearLayout>
     </ScrollView>

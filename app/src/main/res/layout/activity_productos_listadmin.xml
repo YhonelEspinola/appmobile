@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/fondo"
     android:fitsSystemWindows="true">
 
     <LinearLayout
@@ -14,13 +13,13 @@
         android:id="@+id/cabecera"
         android:orientation="horizontal"
         android:gravity="center"
-        android:background="@color/primary">
+        android:background="@color/menu">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Producto"
-            android:textColor="@color/car"
+            android:textColor="@color/white"
             android:textSize="27sp"
             android:textStyle="bold" />
 
@@ -34,7 +33,7 @@
         android:layout_marginTop="17dp"
         android:layout_marginLeft="5dp"
         android:src="@drawable/atras_icon"
-        app:tint="@color/car"
+        app:tint="@color/white"
         />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -48,8 +47,9 @@
             android:id="@+id/search"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Buscar"
-            android:background="@drawable/edit_text"
+            android:hint="Buscar producto"
+            android:padding="10dp"
+            android:drawableEnd="@drawable/search_icon"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
