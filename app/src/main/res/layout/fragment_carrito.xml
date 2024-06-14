@@ -65,6 +65,7 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/btnProcesarCompra"
             android:layout_width="340dp"
             android:layout_height="50dp"
             android:layout_marginTop="15dp"
