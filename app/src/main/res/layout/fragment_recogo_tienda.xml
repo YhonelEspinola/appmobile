@@ -25,7 +25,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textNomApe"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="wrap_content"
+                android:padding="10dp"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -44,7 +45,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textCelular"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
                 android:hint="123456789"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -64,7 +66,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textDni"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
                 android:hint="12345678"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -85,7 +88,8 @@
             <AutoCompleteTextView
                 android:id="@+id/cboDepartamento"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
                 android:hint="Seleccione Departamento"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -106,7 +110,8 @@
             <AutoCompleteTextView
                 android:id="@+id/cboProvinvia"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
                 android:hint="Seleccione Provincia"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -127,7 +132,8 @@
             <AutoCompleteTextView
                 android:id="@+id/cboDistrito"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
                 android:hint="Seleccione Distrito"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -148,7 +154,8 @@
             <AutoCompleteTextView
                 android:id="@+id/cboLocal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
                 android:hint="Seleccione Local"/>
 
         </com.google.android.material.textfield.TextInputLayout>
