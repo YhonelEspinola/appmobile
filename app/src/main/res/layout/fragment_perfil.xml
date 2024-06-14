@@ -259,9 +259,9 @@
         android:text="Cerrar sesión"
         android:layout_margin="10dp"
         android:textColor="@color/bottom"
-        android:drawableStart="@drawable/car_icon"
+        android:drawableStart="@drawable/cerrar_sesion"
         android:paddingStart="16dp"
-        android:paddingEnd="16dp"
+        android:paddingEnd="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />

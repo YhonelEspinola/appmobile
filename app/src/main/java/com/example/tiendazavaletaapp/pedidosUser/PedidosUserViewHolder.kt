@@ -37,6 +37,7 @@ class PedidosUserViewHolder(inflater: LayoutInflater, viewGroup: ViewGroup):
             val fragmentManager = (context as AppCompatActivity).supportFragmentManager
             fragmentManager.beginTransaction()
                 .replace(R.id.fragment_menu, fragment)
+                .addToBackStack(null)
                 .commit()
         }
     }

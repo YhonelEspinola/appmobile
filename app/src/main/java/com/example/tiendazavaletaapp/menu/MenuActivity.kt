@@ -53,6 +53,7 @@ class MenuActivity: AppCompatActivity() {
     fun openFragment(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragment_menu, fragment)
+        transaction.addToBackStack(null)
         transaction.commit()
     }
 }

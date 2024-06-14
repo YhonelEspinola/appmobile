@@ -17,6 +17,7 @@
         android:layout_marginStart="16dp"/>
 
     <ImageView
+        android:id="@+id/equis"
         android:layout_width="35dp"
         android:layout_height="35dp"
         app:layout_constraintTop_toTopOf="parent"
@@ -99,7 +100,8 @@
                 android:backgroundTint="@color/black"
                 android:text="Cancelar"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="10dp"
+                android:onClick="cancelarCambios"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

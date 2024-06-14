@@ -34,6 +34,7 @@ class PerfilFragment :Fragment(){
             val transaction = parentFragmentManager.beginTransaction()
             transaction.replace(R.id.fragment_menu, newFragment)
             transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+            transaction.addToBackStack(null)
             transaction.commit()
         }
         misCompras.setOnClickListener {
@@ -41,6 +42,7 @@ class PerfilFragment :Fragment(){
             val transaction = parentFragmentManager.beginTransaction()
             transaction.replace(R.id.fragment_menu, newFragment)
             transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+            transaction.addToBackStack(null)
             transaction.commit()
         }
         verMas.setOnClickListener {
@@ -48,6 +50,7 @@ class PerfilFragment :Fragment(){
             val transaction = parentFragmentManager.beginTransaction()
             transaction.replace(R.id.fragment_menu, newFragment)
             transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+            transaction.addToBackStack(null)
             transaction.commit()
         }
     }
