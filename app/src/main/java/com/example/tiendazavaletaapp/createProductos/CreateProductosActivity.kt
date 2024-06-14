@@ -1,5 +1,6 @@
 package com.example.tiendazavaletaapp.createProductos
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -8,6 +9,7 @@ import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tiendazavaletaapp.R
+import com.example.tiendazavaletaapp.gestionAdmid.GestionAdminActivity
 
 class CreateProductosActivity : AppCompatActivity() {
 
@@ -25,10 +27,17 @@ class CreateProductosActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_productos)
 
+
         btnImagen = findViewById(R.id.btnImagen)
         imgProducto = findViewById(R.id.imgProducto)
         btnImagen.setOnClickListener{
             pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
+        }
+
+        val btnButtonAtras = findViewById<ImageView>(R.id.btnButtonAtras)
+        btnButtonAtras.setOnClickListener{
+            val intent = Intent(this, GestionAdminActivity::class.java)
+            startActivity(intent)
         }
 
     }

@@ -29,7 +29,7 @@
                 android:orientation="horizontal">
                 <TextView
 
-                    android:layout_width="150dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:text="Correo del cliente : "
                     android:gravity="start"
@@ -52,7 +52,7 @@
                 android:orientation="horizontal">
                 <TextView
 
-                    android:layout_width="150dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:text="Entrega en tienda : "
                     android:gravity="start"
@@ -75,7 +75,7 @@
                 android:orientation="horizontal">
                 <TextView
 
-                    android:layout_width="150dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:text="Fecha de compra : "
                     android:gravity="start"
@@ -98,7 +98,7 @@
                 android:orientation="horizontal">
                 <TextView
 
-                    android:layout_width="150dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:text="Cod.Pedido : "
                     android:gravity="start"
@@ -121,7 +121,7 @@
                 android:orientation="horizontal">
                 <TextView
 
-                    android:layout_width="150dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:text="Total en soles: "
                     android:gravity="start"

@@ -1,11 +1,14 @@
 package com.example.tiendazavaletaapp.ProductosListaAdmin
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tiendazavaletaapp.R
+import com.example.tiendazavaletaapp.gestionAdmid.GestionAdminActivity
 
 class ProductosListaAdminActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,5 +29,10 @@ class ProductosListaAdminActivity: AppCompatActivity() {
         recyclerProductosListAdmin.adapter=adapterPLA
         recyclerProductosListAdmin.layoutManager= LinearLayoutManager(this)
 
+        val btnButtonAtras = findViewById<ImageView>(R.id.btnAtras)
+        btnButtonAtras.setOnClickListener{
+            val intent = Intent(this, GestionAdminActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

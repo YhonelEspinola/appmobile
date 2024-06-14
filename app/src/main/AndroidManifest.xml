@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Tiendazavaletaapp"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".gestionAdmid.GestionAdminActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,6 +26,9 @@
         <activity android:name=".ProductosListaAdmin.ProductosListaAdminActivity"/>
         <activity android:name=".Perfil.CambiarContraPerfilActivity"/>
         <activity android:name=".menuTop.MenuTopActivity"/>
+        <activity android:name=".createProductos.CreateProductosActivity"/>
+        <activity android:name=".login.LoginActivity"/>
+
 
     </application>
 
