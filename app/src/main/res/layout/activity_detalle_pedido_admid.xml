@@ -139,7 +139,7 @@
         app:layout_constraintBottom_toTopOf="@id/totalLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:listitem="@layout/item_detalle_pedido_admid" />
+        tools:listitem="@layout/item_detalle_pedido" />
 
     <LinearLayout
         android:id="@+id/totalLayout"

@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.tiendazavaletaapp.R
 
 class DetallePedidoAdmidViewHolder(inflater: LayoutInflater, viewGroup : ViewGroup) :
-RecyclerView.ViewHolder(inflater.inflate(R.layout.item_detalle_pedido_admid, viewGroup , false)) {
+RecyclerView.ViewHolder(inflater.inflate(R.layout.item_detalle_pedido, viewGroup , false)) {
 
     private var textTitulo : TextView?=null
     private var textCantidad : TextView?=null

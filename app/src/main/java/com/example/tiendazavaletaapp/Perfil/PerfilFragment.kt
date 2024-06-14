@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 
 import com.example.tiendazavaletaapp.R
+import com.example.tiendazavaletaapp.pedidosUser.PedidosUserFragment
+import com.example.tiendazavaletaapp.vermas.VerMasFragment
 
 class PerfilFragment :Fragment(){
 
@@ -24,10 +26,25 @@ class PerfilFragment :Fragment(){
         super.onViewCreated(view, savedInstanceState)
 
         val miPerfil: LinearLayout = view.findViewById(R.id.miPerfil)
+        val misCompras: LinearLayout = view.findViewById(R.id.misCompras)
+        val verMas: LinearLayout = view.findViewById(R.id.verMas)
 
         miPerfil.setOnClickListener {
-            // Aquí es donde realizas la navegación
             val newFragment = PerfilEditFragment.newInstance()
+            val transaction = parentFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragment_menu, newFragment)
+            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+            transaction.commit()
+        }
+        misCompras.setOnClickListener {
+            val newFragment = PedidosUserFragment.newInstance()
+            val transaction = parentFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragment_menu, newFragment)
+            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+            transaction.commit()
+        }
+        verMas.setOnClickListener {
+            val newFragment = VerMasFragment.newInstance()
             val transaction = parentFragmentManager.beginTransaction()
             transaction.replace(R.id.fragment_menu, newFragment)
             transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
