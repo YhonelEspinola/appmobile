@@ -25,6 +25,7 @@
         <activity android:name=".pedidos.PedidosActivity"/>
         <activity android:name=".ProductosListaAdmin.ProductosListaAdminActivity"/>
         <activity android:name=".Perfil.CambiarContraPerfilActivity"/>
+        <activity android:name=".menuTop.MenuTopActivity"/>
 
     </application>
 

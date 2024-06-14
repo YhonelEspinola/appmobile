@@ -50,6 +50,7 @@ class CarritoFragment : Fragment(){
             transaction.replace(R.id.fragment_menu2, newFragment)
             transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
             transaction.commit()
+
         }
     }
 
