@@ -25,7 +25,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textNomApe"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="wrap_content"
+                android:padding="10dp"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -44,7 +45,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textCelular"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
                 android:hint="123456789"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -64,7 +66,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textDni"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
                 android:hint="12345678"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -84,7 +87,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textUbicacion"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
                 android:hint="Departamento-Provincia-Distrito"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -104,7 +108,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textDirec"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
                 android:hint="Indica calle y n° piso"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -124,7 +129,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textReferencia"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
                 android:hint="Ejem:frente al parque el modelo"/>
 
         </com.google.android.material.textfield.TextInputLayout>
