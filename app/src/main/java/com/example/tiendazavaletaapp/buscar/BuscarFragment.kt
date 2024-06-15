@@ -40,7 +40,6 @@ class BuscarFragment: Fragment() {
 
         val recyclerSearch =view.findViewById<RecyclerView>(R.id.recyclerSearch)
 
-        val search = view.findViewById<SearchView>(R.id.search)
 
         val adapterW = BuscarAdapter(listSearch)
         recyclerSearch.adapter= adapterW
