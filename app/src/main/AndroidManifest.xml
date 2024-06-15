@@ -28,6 +28,7 @@
         <activity android:name=".menuTop.MenuTopActivity"/>
         <activity android:name=".createProductos.CreateProductosActivity"/>
         <activity android:name=".login.LoginActivity"/>
+        <activity android:name=".editProductos.EditProductosActivity"/>
 
 
     </application>

@@ -33,6 +33,7 @@
 
     </LinearLayout>
     <ImageView
+        android:id="@+id/btnAtras"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:src="@drawable/atras_icon"
@@ -40,7 +41,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="15dp"
         android:layout_marginLeft="15dp"
-        android:tint="@color/menu"
+        app:tint="@color/menu"
         />
     <ScrollView
         android:layout_width="match_parent"
