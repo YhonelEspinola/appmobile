@@ -54,6 +54,7 @@
             android:layout_marginBottom="18dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtEmail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 
@@ -73,6 +74,7 @@
             android:layout_marginBottom="15dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtPassword"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="textPassword"/>
@@ -80,12 +82,14 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
+            android:id="@+id/txtOlvidarContra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="25dp"
             android:text="Olvide mi Contraseña"/>
 
         <Button
+            android:id="@+id/btnLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Iniciar Sesion"
@@ -104,6 +108,7 @@
                 android:textSize="15sp"/>
 
             <TextView
+                android:id="@+id/textRegistrarse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Registrate ahora"

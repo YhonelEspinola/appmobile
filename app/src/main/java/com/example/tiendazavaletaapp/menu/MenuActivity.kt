@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.tiendazavaletaapp.Perfil.PerfilFragment
 import com.example.tiendazavaletaapp.R
+import com.example.tiendazavaletaapp.buscar.BuscarFragment
 import com.example.tiendazavaletaapp.carrito.CarritoFragment
 import com.example.tiendazavaletaapp.recyclermain.MasVendidosFragment
 import com.example.tiendazavaletaapp.recyclerwish.WishFragment
@@ -20,6 +21,12 @@ class MenuActivity: AppCompatActivity() {
             when (it.itemId) {
                 R.id.itemHome -> {
                     val fragment = MasVendidosFragment.newInstance()
+                    openFragment(fragment)
+                    true
+                }
+
+                R.id.itemSearch -> {
+                    val fragment = BuscarFragment.newInstance()
                     openFragment(fragment)
                     true
                 }

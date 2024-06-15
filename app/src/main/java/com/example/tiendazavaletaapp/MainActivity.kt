@@ -10,6 +10,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tiendazavaletaapp.Perfil.CambiarContraPerfilActivity
+import com.example.tiendazavaletaapp.login.LoginActivity
 import com.example.tiendazavaletaapp.menu.MenuActivity
 import com.example.tiendazavaletaapp.recyclermain.MasVendidos
 import com.example.tiendazavaletaapp.recyclermain.MasVendidosAdapter
@@ -23,9 +24,9 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         Handler().postDelayed({
-            val intent = Intent(this, MenuActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
-        }, 3000)
+        }, 1000)
 
 
     }
