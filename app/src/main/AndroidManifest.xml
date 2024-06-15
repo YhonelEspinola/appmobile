@@ -26,6 +26,7 @@
         <activity android:name=".ProductosListaAdmin.ProductosListaAdminActivity"/>
         <activity android:name=".Perfil.CambiarContraPerfilActivity"/>
         <activity android:name=".menuTop.MenuTopActivity"/>
+        <activity android:name=".detallePedidoPce.DetallePedidoPceActivity"/>
         <activity android:name=".createProductos.CreateProductosActivity"/>
         <activity android:name=".login.LoginActivity"/>
 
