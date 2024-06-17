@@ -1,10 +1,16 @@
 package com.example.tiendazavaletaapp.pedidos
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tiendazavaletaapp.R
+import com.example.tiendazavaletaapp.detallePedidoAdmid.DetallePedidoAdmid
+import com.example.tiendazavaletaapp.detallePedidoAdmid.DetallePedidoAdmidActivity
+import com.example.tiendazavaletaapp.editProductos.EditProductosActivity
 
 
 class PedidosViewHolder (inflater: LayoutInflater, viewGroup: ViewGroup):
@@ -14,6 +20,7 @@ class PedidosViewHolder (inflater: LayoutInflater, viewGroup: ViewGroup):
     private var textFechaCompra: TextView?=null
     private var textCodPedido: TextView?=null
     private var textTotal: TextView?=null
+    private var cardView: CardView? = null
 
 
 
@@ -23,6 +30,11 @@ class PedidosViewHolder (inflater: LayoutInflater, viewGroup: ViewGroup):
         textFechaCompra = itemView.findViewById(R.id.textFechaCompra)
         textCodPedido = itemView.findViewById(R.id.textCodPedido)
         textTotal = itemView.findViewById(R.id.textTotal)
+        cardView = itemView.findViewById(R.id.cardViewDetalle)
+        cardView?.setOnClickListener {
+            val intent = Intent(itemView.context, DetallePedidoAdmidActivity::class.java)
+            itemView.context.startActivity(intent)
+        }
     }
 
     fun bind(pedidos:Pedidos){
