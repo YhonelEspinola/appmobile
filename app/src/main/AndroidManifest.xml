@@ -34,6 +34,7 @@
         <activity android:name=".registrarUsuario.RegistrarUsuarioActivity"/>
         <activity android:name=".gestionAdmid.GestionAdminActivity"/>
         <activity android:name=".editProductos.EditProductosActivity"/>
+        <activity android:name=".detallePedidoAdmid.DetallePedidoAdmidActivity"/>
 
 
     </application>
