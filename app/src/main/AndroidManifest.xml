@@ -26,8 +26,13 @@
         <activity android:name=".ProductosListaAdmin.ProductosListaAdminActivity"/>
         <activity android:name=".Perfil.CambiarContraPerfilActivity"/>
         <activity android:name=".menuTop.MenuTopActivity"/>
+        <activity android:name=".detallePedidoPce.DetallePedidoPceActivity"/>
+        <activity android:name=".detallePedidoRt.DetallePedidoRtActivitty"/>
         <activity android:name=".createProductos.CreateProductosActivity"/>
         <activity android:name=".login.LoginActivity"/>
+        <activity android:name=".recuperarContrasenia.RecuperarContraseniaActivity"/>
+        <activity android:name=".registrarUsuario.RegistrarUsuarioActivity"/>
+        <activity android:name=".gestionAdmid.GestionAdminActivity"/>
         <activity android:name=".editProductos.EditProductosActivity"/>
 
 

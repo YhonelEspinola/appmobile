@@ -3,8 +3,6 @@ package com.example.tiendazavaletaapp.recyclerwish
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.tiendazavaletaapp.recyclermain.MasVendidos
-import com.example.tiendazavaletaapp.recyclermain.MasVendidosViewHolder
 
 class DeseadosAdapter (val list:List<Deseado>): RecyclerView.Adapter<DeseadosViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DeseadosViewHolder {
