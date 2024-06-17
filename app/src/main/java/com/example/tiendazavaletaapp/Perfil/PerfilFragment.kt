@@ -31,30 +31,24 @@ class PerfilFragment :Fragment(){
 
         miPerfil.setOnClickListener {
             val newFragment = PerfilEditFragment.newInstance()
-            val transaction = parentFragmentManager.beginTransaction()
-            transaction.replace(R.id.fragment_menu, newFragment)
-            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-            transaction.addToBackStack(null)
-            transaction.commit()
+            openSubFragment(newFragment)
         }
         misCompras.setOnClickListener {
             val newFragment = PedidosUserFragment.newInstance()
-            val transaction = parentFragmentManager.beginTransaction()
-            transaction.replace(R.id.fragment_menu, newFragment)
-            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-            transaction.addToBackStack(null)
-            transaction.commit()
+            openSubFragment(newFragment)
         }
         verMas.setOnClickListener {
             val newFragment = VerMasFragment.newInstance()
-            val transaction = parentFragmentManager.beginTransaction()
-            transaction.replace(R.id.fragment_menu, newFragment)
-            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-            transaction.addToBackStack(null)
-            transaction.commit()
+            openSubFragment(newFragment)
         }
     }
-
+    private fun openSubFragment(fragment: Fragment) {
+        val transaction = parentFragmentManager.beginTransaction()
+        transaction.replace(R.id.fragment_menu, fragment)
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+        transaction.addToBackStack(null)
+        transaction.commit()
+    }
     companion object{
         fun newInstance() : PerfilFragment = PerfilFragment()
     }
