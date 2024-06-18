@@ -26,13 +26,15 @@
 
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerCarrito"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/item_carrito"
-        android:layout_marginTop="80dp"
-        />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerCarrito"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/item_carrito"
+            app:layout_constraintTop_toBottomOf="@id/menuSuperior" />
+
+
+
 
     <LinearLayout
         android:id="@+id/infoPago"
@@ -43,34 +45,46 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:layout_marginStart="25dp">
+            android:orientation="vertical"
+            android:layout_margin="20dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Total :"
-                android:textSize="20sp"
-                android:layout_marginEnd="10dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total :"
+                    android:textSize="20sp"
+                    android:layout_marginEnd="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$13.16"
+                    android:textSize="25sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="$13.16"
-                android:textSize="25sp"
-                android:textStyle="bold"/>
+                android:layout_marginTop="20dp">
+
+                <Button
+                    android:id="@+id/btnProcesarCompra"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Procesar Compra"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btnProcesarCompra"
-            android:layout_width="340dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginStart="10dp"
-            android:text="Procesar Compra"/>
 
 
     </LinearLayout>
