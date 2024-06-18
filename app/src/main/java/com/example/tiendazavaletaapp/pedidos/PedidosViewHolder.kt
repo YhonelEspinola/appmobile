@@ -30,7 +30,8 @@ class PedidosViewHolder (inflater: LayoutInflater, viewGroup: ViewGroup):
         textFechaCompra = itemView.findViewById(R.id.textFechaCompra)
         textCodPedido = itemView.findViewById(R.id.textCodPedido)
         textTotal = itemView.findViewById(R.id.textTotal)
-        cardView = itemView.findViewById(R.id.cardViewDetalle)
+
+        cardView = itemView.findViewById(R.id.linerId)
         cardView?.setOnClickListener {
             val intent = Intent(itemView.context, DetallePedidoAdmidActivity::class.java)
             itemView.context.startActivity(intent)

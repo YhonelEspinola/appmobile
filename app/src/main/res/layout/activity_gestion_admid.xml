@@ -7,8 +7,10 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:gravity="center">
         <ImageView
             android:id="@+id/btnImageUser"
@@ -28,7 +30,7 @@
         <Button
             android:id="@+id/btnButtonCrearProductos"
             android:layout_width="300dp"
-            android:layout_height="100dp"
+            android:layout_height="70dp"
             android:text="Crear Productos"
             android:textStyle="bold"
             android:textSize="20dp"
@@ -40,7 +42,7 @@
         <Button
             android:id="@+id/btnButtonVerProductos"
             android:layout_width="300dp"
-            android:layout_height="100dp"
+            android:layout_height="70dp"
             android:text="Ver Productos"
             android:textStyle="bold"
             android:textSize="20dp"
@@ -51,7 +53,7 @@
         <Button
             android:id="@+id/btnButtonVerPedios"
             android:layout_width="300dp"
-            android:layout_height="100dp"
+            android:layout_height="70dp"
             android:text="Ver Pedidos"
             android:textStyle="bold"
             android:textSize="20dp"

@@ -1,149 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_marginStart="10dp">
-
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewDetalle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="10dp"
-        app:cardCornerRadius="10dp"
-        android:backgroundTint="@color/pedidos"
-        >
+    android:layout_margin="15dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="4dp"
+    android:id="@+id/linerId">
 
         <LinearLayout
-            android:id="@+id/linerId"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="?attr/selectableItemBackground">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
-
                     android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:text="Correo del cliente : "
-                    android:gravity="start"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginStart="30dp"
+                    android:layout_height="wrap_content"
+                    android:text="Correo del cliente:"
                     android:textStyle="bold"/>
                 <TextView
                     android:id="@+id/textCorreoCliente"
                     android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    android:hint="Correo"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="5dp"
+                    android:layout_height="wrap_content"
+                    android:text="Correo"
+                    android:gravity="end"
                     />
 
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
                 <TextView
 
                     android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:text="Entrega en tienda : "
-                    android:gravity="start"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginStart="30dp"
+                    android:layout_height="wrap_content"
+                    android:text="Entrega en tienda:"
                     android:textStyle="bold"/>
                 <TextView
                     android:id="@+id/textEntregaTienda"
                     android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    android:hint="Entrega en tienda"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="5dp"
+                    android:layout_height="wrap_content"
+                    android:text="Entrega en tienda"
+                    android:gravity="end"
                     />
 
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
                 <TextView
 
                     android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:text="Fecha de compra : "
-                    android:gravity="start"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginStart="30dp"
+                    android:layout_height="wrap_content"
+                    android:text="Fecha de compra:"
                     android:textStyle="bold"/>
                 <TextView
                     android:id="@+id/textFechaCompra"
                     android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    android:hint="Fecha de compra"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="5dp"
+                    android:layout_height="wrap_content"
+                    android:text="Fecha de compra:"
+                    android:gravity="end"
                     />
 
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
                 <TextView
 
                     android:layout_width="wrap_content"
-                    android:layout_height="20dp"
+                    android:layout_height="wrap_content"
                     android:text="Cod.Pedido : "
-                    android:gravity="start"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginStart="30dp"
                     android:textStyle="bold"/>
                 <TextView
                     android:id="@+id/textCodPedido"
                     android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    android:hint="Codigo del pedido"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="5dp"
+                    android:layout_height="wrap_content"
+                    android:text="Codigo del pedido"
+                    android:gravity="end"
                     />
 
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp">
                 <TextView
 
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
-                    android:text="Total en soles: "
-                    android:gravity="start"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginStart="30dp"
+                    android:text="Total en soles:"
                     android:textStyle="bold"/>
                 <TextView
                     android:id="@+id/textTotal"
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
-                    android:hint="0.0"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="5dp"
+                    android:text="0.0"
+                    android:textStyle="bold"
+                    android:gravity="end"
                     />
 
             </LinearLayout>
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
-
-
-</LinearLayout>
