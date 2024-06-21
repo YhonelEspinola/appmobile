@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 
 
-class ProductosListaAdminAdapter(val list:List<ProductosListaAdmin>): RecyclerView.Adapter<ProductosListaAdminViewHolder>() {
+class ProductosListaAdminAdapter(var list:List<ProductosListaAdmin>): RecyclerView.Adapter<ProductosListaAdminViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductosListaAdminViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         return ProductosListaAdminViewHolder(inflater,parent)
@@ -18,5 +18,9 @@ class ProductosListaAdminAdapter(val list:List<ProductosListaAdmin>): RecyclerVi
     override fun onBindViewHolder(holder: ProductosListaAdminViewHolder, position: Int) {
         val productosListaAdmin=list[position]
         holder.bind(productosListaAdmin)
+    }
+    fun setDatos(datos: List<ProductosListaAdmin>) {
+        this.list = datos
+        notifyDataSetChanged()
     }
 }

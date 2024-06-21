@@ -1,10 +1,12 @@
 package com.example.tiendazavaletaapp.ProductosListaAdmin
 
 data class ProductosListaAdmin (
-    val  titulo:String,
+    val  nProducto:String,
     val  marca:String,
     val  categoria:String,
-    val codigo: String,
+    val codProducto: String,
     val  precio: Double,
-    val imagen:Int
+    val imgProducto:String,
+    val stock: Int,
+    val descripcion: String
 )

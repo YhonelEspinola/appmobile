@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.tiendazavaletaapp.R
 import com.example.tiendazavaletaapp.editProductos.EditProductosActivity
 import com.example.tiendazavaletaapp.recyclermain.MasVendidos
+import com.squareup.picasso.Picasso
 
 class ProductosListaAdminViewHolder(inflater: LayoutInflater, viewGroup: ViewGroup):
     RecyclerView.ViewHolder(inflater.inflate(R.layout.item_productos_listadmin,viewGroup,false)) {
@@ -39,12 +40,13 @@ class ProductosListaAdminViewHolder(inflater: LayoutInflater, viewGroup: ViewGro
 
     }
     fun bind(productosListaAdmin: ProductosListaAdmin){
-        textTitulo?.text=productosListaAdmin.titulo
+        textTitulo?.text=productosListaAdmin.nProducto
         textMarca?.text=productosListaAdmin.marca
         textCategoria?.text=productosListaAdmin.categoria
-        textCodigo?.text=productosListaAdmin.codigo
+        textCodigo?.text=productosListaAdmin.codProducto
         textPrecio?.text=String.format("%.2f", productosListaAdmin.precio)
-        imgProducto?.setImageResource(productosListaAdmin.imagen)
+        Picasso.get().load(productosListaAdmin.imgProducto).into(imgProducto)
+        //imgProducto?.setImageResource(productosListaAdmin.imgProducto)
 
     }
 }
