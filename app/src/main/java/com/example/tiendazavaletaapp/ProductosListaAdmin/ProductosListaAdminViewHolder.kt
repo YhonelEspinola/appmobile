@@ -46,7 +46,6 @@ class ProductosListaAdminViewHolder(inflater: LayoutInflater, viewGroup: ViewGro
         textCodigo?.text=productosListaAdmin.codProducto
         textPrecio?.text=String.format("%.2f", productosListaAdmin.precio)
         Picasso.get().load(productosListaAdmin.imgProducto).into(imgProducto)
-        //imgProducto?.setImageResource(productosListaAdmin.imgProducto)
 
     }
 }

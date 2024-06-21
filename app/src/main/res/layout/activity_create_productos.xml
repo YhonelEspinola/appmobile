@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:layout_marginTop="12dp"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent"
@@ -41,7 +40,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="15dp"
         android:layout_marginLeft="15dp"
-        android:tint="@color/menu"
+        app:tint="@color/menu"
         />
     <ScrollView
         android:layout_width="match_parent"
@@ -52,8 +51,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="15dp">
 
         <TextView
@@ -89,13 +88,6 @@
                 />
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Título"
-            android:textStyle="bold"
-            android:textSize="17sp"/>
-
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -107,15 +99,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="10dp"
-                android:hint="Ingresa el nombre del producto"
+                android:hint="Nombre del producto"
                 />
         </com.google.android.material.textfield.TextInputLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Marca"
-            android:textStyle="bold"
-            android:textSize="17sp"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -127,25 +113,21 @@
                 android:id="@+id/edtMarca"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="Ingresa una marca"
+                android:hint="Marca"
                 android:padding="10dp"
                 />
         </com.google.android.material.textfield.TextInputLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Categoria"
-            android:textStyle="bold"
-            android:textSize="17sp"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="20dp">
+            <!--
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            >
+            -->
 
-            <AutoCompleteTextView
+
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtCategoria"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -153,12 +135,6 @@
                 android:padding="10dp"
                 />
         </com.google.android.material.textfield.TextInputLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Precio"
-            android:textStyle="bold"
-            android:textSize="17sp"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -170,17 +146,25 @@
                 android:id="@+id/edtPrecio"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="Ingresa el precio"
+                android:hint="Precio"
                 android:padding="10dp"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Descripción"
-            android:textStyle="bold"
-            android:textSize="17sp"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtStock"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Stock"
+                android:padding="10dp"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -192,7 +176,7 @@
                 android:id="@+id/edtDescripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Ingrese una descripción"
+                android:hint="Descripción"
                 android:inputType="textMultiLine"
                 android:gravity="top|start"
                 />
