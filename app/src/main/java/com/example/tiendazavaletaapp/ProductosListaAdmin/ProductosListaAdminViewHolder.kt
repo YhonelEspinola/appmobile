@@ -33,10 +33,7 @@ class ProductosListaAdminViewHolder(inflater: LayoutInflater, viewGroup: ViewGro
 
 
         btnEdit = itemView.findViewById(R.id.btnEdit)
-        btnEdit?.setOnClickListener {
-            val intent = Intent(itemView.context, EditProductosActivity::class.java)
-            itemView.context.startActivity(intent)
-        }
+
 
     }
     fun bind(productosListaAdmin: ProductosListaAdmin){
@@ -47,5 +44,18 @@ class ProductosListaAdminViewHolder(inflater: LayoutInflater, viewGroup: ViewGro
         textPrecio?.text=String.format("%.2f", productosListaAdmin.precio)
         Picasso.get().load(productosListaAdmin.imgProducto).into(imgProducto)
 
+        btnEdit?.setOnClickListener {
+            val intent = Intent(itemView.context, EditProductosActivity::class.java).apply {
+                putExtra("nProducto", productosListaAdmin.nProducto)
+                putExtra("marca", productosListaAdmin.marca)
+                putExtra("categoria", productosListaAdmin.categoria)
+                putExtra("codigo", productosListaAdmin.codProducto)
+                putExtra("precio", productosListaAdmin.precio)
+                putExtra("imgProducto", productosListaAdmin.imgProducto)
+                putExtra("stock", productosListaAdmin.stock)
+                putExtra("descripcion", productosListaAdmin.descripcion)
+            }
+            itemView.context.startActivity(intent)
+        }
     }
 }
