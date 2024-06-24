@@ -109,30 +109,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="20dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 >
 
-                <com.google.android.material.textfield.TextInputEditText
+                <AutoCompleteTextView
                     android:id="@+id/edtMarca"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="10dp"
                     android:hint="Marca"
-                    />
+                    android:inputType="none"
+                    android:padding="10dp"
+                    android:dropDownHeight="200dp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 >
 
-                <com.google.android.material.textfield.TextInputEditText
+                <AutoCompleteTextView
                     android:id="@+id/edtCategoria"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="Selecciona una categoria"
+                    android:layout_height="wrap_content"
+                    android:hint="Categoria"
                     android:padding="10dp"
-                    android:inputType=""
+                    android:inputType="none"
+                    android:dropDownHeight="200dp"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 

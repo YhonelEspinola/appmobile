@@ -4,6 +4,8 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
@@ -37,9 +39,20 @@ class CreateProductosActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_productos)
 
+        imgProducto = findViewById(R.id.imgProducto)
+
+        val edtMarca: AutoCompleteTextView = findViewById(R.id.edtMarca)
+        val edtCategoria: AutoCompleteTextView = findViewById(R.id.edtCategoria)
+
+        val items = listOf("Utiles de oficina", "Papeleria", "Arte y Diseño", "Mochilas","Cuadernos, Libretas","Textos Escolares")
+        val adapter = ArrayAdapter(this, R.layout.item_list_dropdown, items)
+        edtCategoria.setAdapter(adapter)
+
+        val itemsMarc = listOf("ARTESCO","EPSON","FABER CASTELL","JUSTUS","PILOT","STABILO","VINIFAN","LAYCONSA","OTRO")
+        val adapterM = ArrayAdapter(this, R.layout.item_list_dropdown, itemsMarc)
+        edtMarca.setAdapter(adapterM)
 
         btnImagen = findViewById(R.id.btnImagen)
-        imgProducto = findViewById(R.id.imgProducto)
         btnImagen.setOnClickListener{
             pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
         }
@@ -79,8 +92,8 @@ class CreateProductosActivity : AppCompatActivity() {
     private fun saveProductToFirestore(imageUrl: String) {
         val db = FirebaseFirestore.getInstance()
         val edtTitulo: TextInputEditText = findViewById(R.id.edtTitulo)
-        val edtMarca: TextInputEditText = findViewById(R.id.edtMarca)
-        val edtCategoria: TextInputEditText = findViewById(R.id.edtCategoria)
+        val edtMarca: AutoCompleteTextView = findViewById(R.id.edtMarca)
+        val edtCategoria: AutoCompleteTextView = findViewById(R.id.edtCategoria)
         val edtPrecio: TextInputEditText = findViewById(R.id.edtPrecio)
         val edtDescripcion: TextInputEditText = findViewById(R.id.edtDescripcion)
         val edtStock: TextInputEditText = findViewById(R.id.edtStock)
@@ -114,8 +127,8 @@ class CreateProductosActivity : AppCompatActivity() {
     }
     private fun clearFields() {
         val edtTitulo: TextInputEditText = findViewById(R.id.edtTitulo)
-        val edtMarca: TextInputEditText = findViewById(R.id.edtMarca)
-        val edtCategoria: TextInputEditText = findViewById(R.id.edtCategoria)
+        val edtMarca: AutoCompleteTextView = findViewById(R.id.edtMarca)
+        val edtCategoria: AutoCompleteTextView = findViewById(R.id.edtCategoria)
         val edtPrecio: TextInputEditText = findViewById(R.id.edtPrecio)
         val edtDescripcion: TextInputEditText = findViewById(R.id.edtDescripcion)
         val edtStock: TextInputEditText = findViewById(R.id.edtStock)
