@@ -1,6 +1,6 @@
-package com.example.tiendazavaletaapp.recyclermain
+package com.example.tiendazavaletaapp.home
 
-data class MasVendidos (
+data class ProductosHome (
     val  marca:String,
     val  titulo:String,
     val  categoria:String,

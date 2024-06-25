@@ -17,12 +17,13 @@
             android:background="@color/gray"
             android:paddingBottom="10dp"
             >
+
             <ImageView
                 android:id="@+id/imgProducto"
                 android:layout_width="match_parent"
-                android:layout_height="175dp"
-                android:src="@mipmap/ic_launcher"
-                android:scaleType="centerCrop"/>
+                android:layout_height="181dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher" />
 
             <TextView
                 android:id="@+id/textMarca"
@@ -63,6 +64,13 @@
                     />
             </RelativeLayout>
 
+            <TextView
+                android:id="@+id/textCodigo"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text=""
+                android:visibility="invisible"
+                />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

@@ -1,4 +1,4 @@
-package com.example.tiendazavaletaapp.recyclermain
+package com.example.tiendazavaletaapp.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tiendazavaletaapp.R
 
-class MasVendidosViewHolder (inflater: LayoutInflater, viewGroup: ViewGroup):
+class ProductosHomeViewHolder (inflater: LayoutInflater, viewGroup: ViewGroup):
     RecyclerView.ViewHolder(inflater.inflate(R.layout.item_p_masvendido,viewGroup,false)) {
 
     private var textMarca: TextView?=null
@@ -25,7 +25,7 @@ class MasVendidosViewHolder (inflater: LayoutInflater, viewGroup: ViewGroup):
         imgProducto=itemView.findViewById(R.id.imgProducto)
 
     }
-    fun bind(masVendidos:MasVendidos){
+    fun bind(masVendidos:ProductosHome){
         textMarca?.text=masVendidos.marca
         textTitulo?.text=masVendidos.titulo
         textCategoria?.text=masVendidos.categoria

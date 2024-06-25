@@ -3,7 +3,6 @@ package com.example.tiendazavaletaapp.pedidos
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.tiendazavaletaapp.recyclermain.MasVendidosViewHolder
 
 class PedidosAdapter (val list:List<Pedidos>):RecyclerView.Adapter<PedidosViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PedidosViewHolder {

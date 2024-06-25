@@ -6,7 +6,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tiendazavaletaapp.R
-import com.example.tiendazavaletaapp.recyclermain.MasVendidos
 
 class DeseadosViewHolder (inflater: LayoutInflater, viewGroup: ViewGroup):
     RecyclerView.ViewHolder(inflater.inflate(R.layout.item_wish,viewGroup,false)) {
