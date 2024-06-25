@@ -19,4 +19,6 @@
     <color name="gray">#54DCDCDC</color>
     <color name="bottom">#DC362E</color>
     <color name="cabecera">#8C1D18</color>
+    <dimen name="categoria_select">45dp</dimen>
+    <dimen name="categoria_normal">40dp</dimen>
 </resources>
