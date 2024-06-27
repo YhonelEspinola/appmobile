@@ -26,7 +26,7 @@ class CategoriaAdapter(val list: List<Categoria>,private val listener: OnCategor
             holder.btnCategoria?.setBackgroundColor(ContextCompat.getColor(holder.itemView.context, R.color.bottom))
             holder.btnCategoria?.layoutParams?.height= holder.itemView.context.resources.getDimensionPixelSize(R.dimen.categoria_select)
         } else {
-            holder.btnCategoria?.setBackgroundColor(ContextCompat.getColor(holder.itemView.context, R.color.marca))
+            holder.btnCategoria?.setBackgroundColor(ContextCompat.getColor(holder.itemView.context, R.color.color_boton_categ))
             holder.btnCategoria?.layoutParams?.height= holder.itemView.context.resources.getDimensionPixelSize(R.dimen.categoria_normal)
         }
         holder.btnCategoria?.setOnClickListener {
