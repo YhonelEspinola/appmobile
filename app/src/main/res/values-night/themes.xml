@@ -3,7 +3,10 @@
     <style name="Base.Theme.Tiendazavaletaapp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <item name="colorPrimary">@color/menu</item>
-        <item name="android:navigationBarColor">@color/menu</item>
+        <item name="android:navigationBarColor">@color/oscuro</item>
+        <item name="android:windowBackground">@color/oscuro</item>
+        <item name="android:statusBarColor">@color/oscuro</item>
+        <item name="android:textColor">@color/white</item>
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
     </style>
 </resources>

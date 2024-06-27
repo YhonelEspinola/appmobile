@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="menu_bottom_navigation">#181818</color>
+    <color name="checked_true_icon">#FFFFFFFF</color>
+
+    <color name="icon_color">#FFFFFFFF</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="color_boton_categ">#404040</color>
+</resources>

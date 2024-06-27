@@ -21,4 +21,13 @@
     <color name="cabecera">#8C1D18</color>
     <dimen name="categoria_select">45dp</dimen>
     <dimen name="categoria_normal">40dp</dimen>
+
+    <color name="oscuro">#181818</color>
+    <color name="icon_color">#FF000000</color>
+    <color name="color_boton_categ">#8E8E8E</color>
+
+
+    //colores para el BottomNavigationView
+    <color name="menu_bottom_navigation">#FFFFFFFF</color>
+    <color name="checked_true_icon">#DC362E</color>
 </resources>

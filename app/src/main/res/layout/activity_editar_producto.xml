@@ -193,7 +193,7 @@
                 android:layout_height="wrap_content"
                 android:text="Guardar"
                 android:textSize="17sp"
-
+                android:textColor="@color/white"
                 android:backgroundTint="@color/bottom"/>
 
             <TextView
