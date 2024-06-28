@@ -69,7 +69,7 @@
         android:id="@+id/btnButonCerrarSesion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_background"
+        android:background="@drawable/button_normal"
         android:text="Cerrar sesión"
         android:layout_margin="10dp"
         android:textColor="@color/bottom"

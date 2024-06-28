@@ -7,4 +7,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="color_boton_categ">#3C3C3C</color>
     <color name="linea">#353535</color>
+    <color name="gray">#3C3C3C</color>
 </resources>

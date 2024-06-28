@@ -10,7 +10,6 @@ import com.example.tiendazavaletaapp.buscar.BuscarFragment
 import com.example.tiendazavaletaapp.carrito.CarritoFragment
 import com.example.tiendazavaletaapp.pedidosUser.PedidosUserFragment
 import com.example.tiendazavaletaapp.home.HomeFragment
-import com.example.tiendazavaletaapp.recyclerwish.WishFragment
 import com.example.tiendazavaletaapp.vermas.VerMasFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -40,15 +39,22 @@ class MenuActivity: AppCompatActivity() {
                     true
                 }
 
-                R.id.itemWish -> {
-                    val fragment = WishFragment.newInstance()
-                    openFragment(fragment)
-                    true
-                }
+//                R.id.itemWish -> {
+//                    val fragment = WishFragment.newInstance()
+//                    openFragment(fragment)
+//                    true
+//                }
 
                 R.id.itemProfile -> {
-                    val fragment = PerfilFragment.newInstance()
-                    openFragment(fragment)
+                    val currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_menu)
+
+                    when(currentFragment){
+                        is PerfilFragment -> openFragment(PerfilFragment.newInstance())
+                        is PerfilEditFragment -> openFragment(PerfilEditFragment.newInstance())
+                        is PedidosUserFragment -> openFragment(PedidosUserFragment.newInstance())
+                        is VerMasFragment -> openFragment(VerMasFragment.newInstance())
+                        else -> openFragment(PerfilFragment.newInstance())
+                    }
                     true
                 }
 
@@ -61,7 +67,9 @@ class MenuActivity: AppCompatActivity() {
                     HomeFragment::class.java,
                     BuscarFragment::class.java,
                     CarritoFragment::class.java,
-                    WishFragment::class.java,
+                    PedidosUserFragment::class.java,
+                    VerMasFragment::class.java,
+                    PerfilEditFragment::class.java,
                     PerfilFragment::class.java)) {
                 nav_view.selectedItemId = getFragmentMenuItemId(fragment)
             }
@@ -82,7 +90,7 @@ class MenuActivity: AppCompatActivity() {
         val currentFragment = fragmentManager.findFragmentById(R.id.fragment_menu)
 
         if (currentFragment != null && currentFragment::class.java == fragment::class.java) {
-            return // El fragmento ya está mostrado, no hagas nada
+            return
         }
 
         val transaction = fragmentManager.beginTransaction()
@@ -92,12 +100,12 @@ class MenuActivity: AppCompatActivity() {
     }
     private fun getFragmentMenuItemId(fragment: Fragment): Int {
         return when (fragment) {
-            is HomeFragment -> R.id.itemHome
+            is HomeFragment-> R.id.itemHome
             is BuscarFragment -> R.id.itemSearch
             is CarritoFragment -> R.id.itemCar
-            is WishFragment -> R.id.itemWish
+            //is WishFragment -> R.id.itemWish
             is PerfilFragment, is PerfilEditFragment, is PedidosUserFragment, is VerMasFragment -> R.id.itemProfile
-            else -> R.id.itemHome // Default case
+            else -> R.id.itemHome
         }
     }
 }

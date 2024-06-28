@@ -9,7 +9,7 @@
         android:id="@+id/recyclerPC"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_wish"
+        tools:listitem="@layout/item_producto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 

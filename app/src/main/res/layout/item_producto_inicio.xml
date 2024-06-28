@@ -4,30 +4,30 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginBottom="10dp">
+    android:layout_marginBottom="10dp"
+    android:id="@+id/itemProducto">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="180dp"
-        android:layout_height="match_parent"
+        android:layout_width="165dp"
+        android:layout_height="wrap_content"
         app:cardCornerRadius="10dp"
-        android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
         android:layout_marginTop="15dp"
+        android:layout_marginStart="10dp"
         >
         <ImageView
             android:id="@+id/imgProducto"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher" />
-
-
+            android:layout_height="150dp"
+            android:src="@mipmap/ic_launcher"
+            android:scaleType="centerCrop"/>
     </androidx.cardview.widget.CardView>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="10dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
@@ -48,12 +48,12 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:text="Titulo"
-            android:layout_margin="5dp"/>
+            android:layout_margin="3dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp">
+            android:layout_margin="3dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -84,5 +84,18 @@
             android:text=""
             android:visibility="invisible"
             />
+        <TextView
+            android:id="@+id/textDescripcion"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="invisible"
+            />
+        <TextView
+            android:id="@+id/textStock"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="invisible"
+            />
     </LinearLayout>
+
 </LinearLayout>

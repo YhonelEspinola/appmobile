@@ -7,9 +7,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.tiendazavaletaapp.ProductosListaAdmin.ProductosListaAdmin
 import com.example.tiendazavaletaapp.R
+import com.google.firebase.firestore.FirebaseFirestore
 
 class HomeSubfragment: Fragment() {
+    private  val db= FirebaseFirestore.getInstance()
+    private val colleccion= db.collection("producto")
+    private lateinit var adapterMV: ProductosHomeAdapter
+    private lateinit var adapterR: ProductosHomeAdapter
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -22,26 +28,67 @@ class HomeSubfragment: Fragment() {
         val recyclerMasVendidos = view.findViewById<RecyclerView>(R.id.recyclerMasVendidos)
         val recyclerRecomendado = view.findViewById<RecyclerView>(R.id.recyclerRecomendado)
 
-        val listProductos = listOf<ProductosHome>(
-            ProductosHome("Marca","Titulo","Cateogria",0.00,R.drawable.img),
-            ProductosHome("Marca","Titulo","Cateogria",0.00,R.drawable.img),
-            ProductosHome("Marca","Titulo","Cateogria",0.00,R.drawable.img),
-            ProductosHome("Marca","Titulo","Cateogria",0.00,R.drawable.img),
-            ProductosHome("Marca","Titulo","Cateogria",0.00,R.drawable.img),
-        )
-        val adapterMV = ProductosHomeAdapter(listProductos)
+        adapterMV = ProductosHomeAdapter(emptyList())
         recyclerMasVendidos.adapter=adapterMV
         recyclerMasVendidos.layoutManager=
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
 
-        val adapterR = ProductosHomeAdapter(listProductos)
+        adapterR = ProductosHomeAdapter(emptyList())
         recyclerRecomendado.adapter=adapterR
         recyclerRecomendado.layoutManager=
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
+
+        listMasVendidos()
+
+        listRecomendado()
 
     }
 
     companion object{
         fun newInstance() : HomeSubfragment = HomeSubfragment()
+    }
+
+    private fun listMasVendidos(){
+        colleccion.get()
+            .addOnSuccessListener { querySnapshot ->
+                val listProductosListaAdmin = mutableListOf<ProductosListaAdmin>()
+                for(document in querySnapshot){
+                    val nProducto = document.getString("nProducto") ?: ""
+                    val marca = document.getString("marca") ?: ""
+                    val categoria = document.getString("categoria") ?: ""
+                    val codigo = document.id
+                    val precio = document.getDouble("precio") ?: 0.0
+                    val imgProducto = document.getString("imgProducto") ?: ""
+                    val stock = document.getLong("stock")?.toInt() ?: 0
+                    val descripcion = document.getString("descripcion") ?: ""
+                    if(document != null){
+                        val modelo= ProductosListaAdmin(nProducto,marca,categoria,codigo,precio,imgProducto,stock,descripcion)
+                        listProductosListaAdmin.add((modelo))
+                    }
+                }
+                adapterMV.setDatos(listProductosListaAdmin)
+            }
+    }
+
+    private fun listRecomendado(){
+        colleccion.get()
+            .addOnSuccessListener { querySnapshot ->
+                val listProductosListaAdmin = mutableListOf<ProductosListaAdmin>()
+                for(document in querySnapshot){
+                    val nProducto = document.getString("nProducto") ?: ""
+                    val marca = document.getString("marca") ?: ""
+                    val categoria = document.getString("categoria") ?: ""
+                    val codigo = document.id
+                    val precio = document.getDouble("precio") ?: 0.0
+                    val imgProducto = document.getString("imgProducto") ?: ""
+                    val stock = document.getLong("stock")?.toInt() ?: 0
+                    val descripcion = document.getString("descripcion") ?: ""
+                    if(document != null){
+                        val modelo= ProductosListaAdmin(nProducto,marca,categoria,codigo,precio,imgProducto,stock,descripcion)
+                        listProductosListaAdmin.add((modelo))
+                    }
+                }
+                adapterR.setDatos(listProductosListaAdmin)
+            }
     }
 }

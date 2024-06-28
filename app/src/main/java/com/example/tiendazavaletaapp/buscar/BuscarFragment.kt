@@ -8,10 +8,16 @@ import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.tiendazavaletaapp.ProductosListaAdmin.ProductosListaAdmin
 import com.example.tiendazavaletaapp.R
+import com.example.tiendazavaletaapp.home.ListCategoriaAdapter
+import com.example.tiendazavaletaapp.home.ProductosHomeAdapter
+import com.google.firebase.firestore.FirebaseFirestore
 
 class BuscarFragment: Fragment() {
-
+    private  val db= FirebaseFirestore.getInstance()
+    private val colleccion= db.collection("producto")
+    private lateinit var adapterB: ListCategoriaAdapter
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -24,29 +30,37 @@ class BuscarFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        val listSearch = listOf<Buscar>(
-            Buscar("Marca 1","Producto 1","Cateogria",10.00, R.drawable.img),
-            Buscar("Marca 2","Producto 2","Cateogria",20.00, R.drawable.img),
-            Buscar("Marca 2","Producto 3","Cateogria",5.00, R.drawable.img),
-            Buscar("Marca 3","Producto 4","Cateogria",25.00, R.drawable.img),
-            Buscar("Marca 1","Producto 5","Cateogria",12.30, R.drawable.img),
-            Buscar("Marca 1","Producto 5","Cateogria",12.30, R.drawable.img),
-            Buscar("Marca 1","Producto 1","Cateogria",12.30, R.drawable.img),
-            Buscar("Marca 1","Producto 5","Cateogria",12.30, R.drawable.img),
-            Buscar("Marca 1","Producto 5","Cateogria",12.30, R.drawable.img),
-            Buscar("Marca 1","Producto 4","Cateogria",12.30, R.drawable.img),
-            Buscar("Marca 1","Producto 5","Cateogria",12.30, R.drawable.img),
-        )
-
         val recyclerSearch =view.findViewById<RecyclerView>(R.id.recyclerSearch)
 
-
-        val adapterW = BuscarAdapter(listSearch)
-        recyclerSearch.adapter= adapterW
+        adapterB = ListCategoriaAdapter(emptyList())
+        recyclerSearch.adapter= adapterB
         recyclerSearch.layoutManager= GridLayoutManager(context,2)
+
+        listBuscar()
     }
 
     companion object{
         fun newInstance() : BuscarFragment = BuscarFragment()
+    }
+    private fun listBuscar(){
+        colleccion.get()
+            .addOnSuccessListener { querySnapshot ->
+                val listProductos = mutableListOf<ProductosListaAdmin>()
+                for(document in querySnapshot){
+                    val nProducto = document.getString("nProducto") ?: ""
+                    val marca = document.getString("marca") ?: ""
+                    val categoria = document.getString("categoria") ?: ""
+                    val codigo = document.id
+                    val precio = document.getDouble("precio") ?: 0.0
+                    val imgProducto = document.getString("imgProducto") ?: ""
+                    val stock = document.getLong("stock")?.toInt() ?: 0
+                    val descripcion = document.getString("descripcion") ?: ""
+                    if(document != null){
+                        val modelo= ProductosListaAdmin(nProducto,marca,categoria,codigo,precio,imgProducto,stock,descripcion)
+                        listProductos.add((modelo))
+                    }
+                }
+                adapterB.setDatos(listProductos)
+            }
     }
 }

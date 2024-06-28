@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.tiendazavaletaapp.R
 
 class DeseadosViewHolder (inflater: LayoutInflater, viewGroup: ViewGroup):
-    RecyclerView.ViewHolder(inflater.inflate(R.layout.item_wish,viewGroup,false)) {
+    RecyclerView.ViewHolder(inflater.inflate(R.layout.item_producto,viewGroup,false)) {
 
     private var textMarca: TextView?=null
     private var textTitulo: TextView?=null
