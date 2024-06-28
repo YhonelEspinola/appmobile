@@ -25,6 +25,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="17dp"
         android:src="@drawable/equis_icon"
+        app:tint="@color/icon_color"
         />
 
     <androidx.cardview.widget.CardView
@@ -92,7 +93,8 @@
                 android:backgroundTint="@color/bottom"
                 android:text="Guardar"
                 android:layout_gravity="center"
-                android:layout_marginTop="40dp" />
+                android:layout_marginTop="40dp"
+                android:textColor="@color/white"/>
             <Button
                 android:id="@+id/btnCancelar"
                 android:layout_width="250dp"
@@ -101,7 +103,8 @@
                 android:text="Cancelar"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:onClick="cancelarCambios"/>
+                android:onClick="cancelarCambios"
+                android:textColor="@color/white"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

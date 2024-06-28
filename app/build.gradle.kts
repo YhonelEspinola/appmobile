@@ -51,11 +51,13 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.firebase.firestore.ktx)
     implementation(libs.firebase.storage.ktx)
-    implementation(libs.firebaseAuth)/*Autentificacion*/
+    implementation(libs.firebaseAuth)
+    implementation(libs.firebase.auth.ktx)/*Autentificacion*/
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    implementation("com.airbnb.android:lottie:6.0.0")
     implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
     implementation ("com.squareup.picasso:picasso:2.8")
 }

@@ -9,7 +9,7 @@ import com.example.tiendazavaletaapp.R
 import com.example.tiendazavaletaapp.buscar.BuscarFragment
 import com.example.tiendazavaletaapp.carrito.CarritoFragment
 import com.example.tiendazavaletaapp.pedidosUser.PedidosUserFragment
-import com.example.tiendazavaletaapp.recyclermain.MasVendidosFragment
+import com.example.tiendazavaletaapp.home.HomeFragment
 import com.example.tiendazavaletaapp.recyclerwish.WishFragment
 import com.example.tiendazavaletaapp.vermas.VerMasFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -23,7 +23,7 @@ class MenuActivity: AppCompatActivity() {
         nav_view.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.itemHome -> {
-                    val fragment = MasVendidosFragment.newInstance()
+                    val fragment = HomeFragment.newInstance()
                     openFragment(fragment)
                     true
                 }
@@ -58,7 +58,7 @@ class MenuActivity: AppCompatActivity() {
         supportFragmentManager.addOnBackStackChangedListener {
             val fragment = supportFragmentManager.findFragmentById(R.id.fragment_menu)
             if (fragment != null && fragment::class.java in setOf(
-                    MasVendidosFragment::class.java,
+                    HomeFragment::class.java,
                     BuscarFragment::class.java,
                     CarritoFragment::class.java,
                     WishFragment::class.java,
@@ -92,7 +92,7 @@ class MenuActivity: AppCompatActivity() {
     }
     private fun getFragmentMenuItemId(fragment: Fragment): Int {
         return when (fragment) {
-            is MasVendidosFragment -> R.id.itemHome
+            is HomeFragment -> R.id.itemHome
             is BuscarFragment -> R.id.itemSearch
             is CarritoFragment -> R.id.itemCar
             is WishFragment -> R.id.itemWish

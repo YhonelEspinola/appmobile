@@ -4,6 +4,8 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -13,7 +15,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tiendazavaletaapp.ProductosListaAdmin.ProductosListaAdminActivity
 import com.example.tiendazavaletaapp.R
-import com.example.tiendazavaletaapp.gestionAdmid.GestionAdminActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
@@ -39,8 +40,8 @@ class EditProductosActivity :AppCompatActivity(){
     lateinit var btnImagen: Button
     lateinit var imgProducto: ImageView
     lateinit var edtTitulo: TextInputEditText
-    lateinit var edtMarca: TextInputEditText
-    lateinit var edtCategoria: TextInputEditText
+    lateinit var edtMarca: AutoCompleteTextView
+    lateinit var edtCategoria: AutoCompleteTextView
     lateinit var edtPrecio: TextInputEditText
     lateinit var edtStock: TextInputEditText
     lateinit var edtDescripcion: TextInputEditText
@@ -62,6 +63,15 @@ class EditProductosActivity :AppCompatActivity(){
         textCodigo = findViewById(R.id.textCodigo)
         btnEditProductos = findViewById(R.id.btnEditProductos)
 
+        val itemsCat = listOf("Utiles de oficina", "Papeleria", "Arte y Diseño", "Mochilas","Cuadernos, Libretas","Textos Escolares")
+        val adapterC = ArrayAdapter(this, R.layout.item_list_dropdown, itemsCat)
+        edtCategoria.setAdapter(adapterC)
+
+        val itemsMarc = listOf("ARTESCO","EPSON","FABER CASTELL","JUSTUS","PILOT","STABILO","VINIFAN","LAYCONSA","OTRO")
+        val adapterM = ArrayAdapter(this, R.layout.item_list_dropdown, itemsMarc)
+        edtMarca.setAdapter(adapterM)
+
+
         btnImagen.setOnClickListener{
             pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
         }
@@ -81,8 +91,8 @@ class EditProductosActivity :AppCompatActivity(){
 
         // Llenar campos
         edtTitulo.setText(nProducto)
-        edtMarca.setText(marca)
-        edtCategoria.setText(categoria)
+        edtMarca.setText(marca, false)
+        edtCategoria.setText(categoria,false)
         edtPrecio.setText(precio.toString())
         edtStock.setText(stock.toString())
         edtDescripcion.setText(descripcion)
@@ -138,7 +148,9 @@ class EditProductosActivity :AppCompatActivity(){
             .addOnSuccessListener {
                 Toast.makeText(this, "Actualizacion exitosa", Toast.LENGTH_LONG).show()
                 val intent = Intent(this, ProductosListaAdminActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
+                finish()
             }
             .addOnFailureListener {
                 Toast.makeText(this, "Algo salió mal", Toast.LENGTH_SHORT).show()

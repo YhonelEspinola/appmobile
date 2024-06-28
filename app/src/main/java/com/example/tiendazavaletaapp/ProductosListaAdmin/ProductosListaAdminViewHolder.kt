@@ -9,7 +9,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tiendazavaletaapp.R
 import com.example.tiendazavaletaapp.editProductos.EditProductosActivity
-import com.example.tiendazavaletaapp.recyclermain.MasVendidos
 import com.squareup.picasso.Picasso
 
 class ProductosListaAdminViewHolder(inflater: LayoutInflater, viewGroup: ViewGroup):

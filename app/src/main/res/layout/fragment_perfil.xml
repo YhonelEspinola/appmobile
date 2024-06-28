@@ -10,19 +10,26 @@
         android:id="@+id/prinCabecera"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:background="@color/menu"
         app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/header_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cuenta"
+            android:layout_margin="10dp"
             android:textSize="25sp"
-            android:textColor="@color/white"
+            android:textColor="@color/bottom"
             android:textStyle="bold" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@color/linea"
+            />
+
     </LinearLayout>
 
     <LinearLayout
@@ -39,7 +46,8 @@
             android:id="@+id/user_image"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:src="@drawable/baseline_account_circle_24" />
+            android:src="@drawable/baseline_account_circle_24"
+            app:tint="@color/icon_color"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -83,7 +91,8 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/usuario" />
+                android:src="@drawable/usuario"
+                app:tint="@color/icon_color"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -107,7 +116,8 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/tienda" />
+                android:src="@drawable/tienda"
+                app:tint="@color/icon_color"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -160,7 +170,8 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/whatsapp"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="10dp"
+                app:tint="@color/icon_color"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -198,7 +209,8 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/correo"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="10dp"
+                app:tint="@color/icon_color"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -241,13 +253,13 @@
 
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/baseline_add_circle_outline_24" />
+            android:src="@drawable/baseline_add_circle_outline_24"
+            app:tint="@color/icon_color"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="9dp"
-            android:textColor="@color/black"
             android:text="Ver más" />
     </LinearLayout>
 
@@ -260,6 +272,7 @@
         android:layout_margin="10dp"
         android:textColor="@color/bottom"
         android:drawableStart="@drawable/cerrar_sesion"
+        android:drawableTint="@color/icon_color"
         android:paddingStart="16dp"
         android:paddingEnd="40dp"
         app:layout_constraintEnd_toEndOf="parent"

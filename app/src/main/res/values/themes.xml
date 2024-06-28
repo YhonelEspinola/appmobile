@@ -2,8 +2,11 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Tiendazavaletaapp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <item name="colorPrimary">@color/menu</item>
-        <item name="android:navigationBarColor">@color/menu</item>
+        <item name="colorPrimary">@color/bottom</item>
+        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 
     <style name="Theme.Tiendazavaletaapp" parent="Base.Theme.Tiendazavaletaapp" />
@@ -16,5 +19,9 @@
 
     <style name="CustomActiveIndicatorStyle">
         <item name="android:color">@android:color/transparent</item>
+    </style>
+
+    <style name="SplashTheme" parent="Base.Theme.Tiendazavaletaapp">
+        <item name="android:windowBackground">@drawable/splash_background</item>
     </style>
 </resources>

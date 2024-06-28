@@ -65,7 +65,8 @@
             android:layout_height="wrap_content"
             android:text="Enviar Contraseña"
             android:layout_marginBottom="20dp"
-            android:backgroundTint="@color/heart"/>
+            android:backgroundTint="@color/heart"
+            android:textColor="@color/white"/>
 
         <TextView
             android:layout_width="wrap_content"

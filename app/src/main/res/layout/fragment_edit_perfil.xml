@@ -26,6 +26,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginLeft="17dp"
         android:src="@drawable/atras_icon"
+        app:tint="@color/icon_color"
         />
 
     <!-- Form Card -->
@@ -86,6 +87,7 @@
                 android:enabled="false"
                 android:background="@color/gray"
                 android:drawableEnd="@drawable/candado_icon"
+                android:drawableTint="@color/icon_color"
                 android:text="Correoexample@gmail.com"
                 android:paddingEnd="5dp"
                 android:paddingStart="5dp"
@@ -107,6 +109,7 @@
                 android:clickable="true"
                 android:text="contraseña"
                 android:inputType="textPassword"
+                android:drawableTint="@color/icon_color"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="16dp" />
 
@@ -117,6 +120,7 @@
                 android:backgroundTint="@color/bottom"
                 android:text="Guardar"
                 android:layout_gravity="center"
+                android:textColor="@color/white"
                 android:layout_marginTop="30dp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
