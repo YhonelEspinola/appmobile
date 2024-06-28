@@ -15,12 +15,6 @@
         android:id="@+id/itemCar"
         android:title="Carrito"
         android:icon="@drawable/car_icon"/>
-    <!--
-        <item
-            android:id="@+id/itemWish"
-            android:title="Deseados"
-            android:icon="@drawable/heart_icon"/>
-            -->
 
         <item
             android:id="@+id/itemProfile"

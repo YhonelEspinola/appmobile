@@ -39,12 +39,6 @@ class MenuActivity: AppCompatActivity() {
                     true
                 }
 
-//                R.id.itemWish -> {
-//                    val fragment = WishFragment.newInstance()
-//                    openFragment(fragment)
-//                    true
-//                }
-
                 R.id.itemProfile -> {
                     val currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_menu)
 
@@ -103,7 +97,6 @@ class MenuActivity: AppCompatActivity() {
             is HomeFragment-> R.id.itemHome
             is BuscarFragment -> R.id.itemSearch
             is CarritoFragment -> R.id.itemCar
-            //is WishFragment -> R.id.itemWish
             is PerfilFragment, is PerfilEditFragment, is PedidosUserFragment, is VerMasFragment -> R.id.itemProfile
             else -> R.id.itemHome
         }
