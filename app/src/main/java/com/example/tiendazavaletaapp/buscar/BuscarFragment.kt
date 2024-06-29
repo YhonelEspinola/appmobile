@@ -31,7 +31,6 @@ class BuscarFragment : Fragment() {
 
         val recyclerSearch = view.findViewById<RecyclerView>(R.id.recyclerSearch)
         val searchView = view.findViewById<SearchView>(R.id.search)
-
         adapterB = BuscarAdapter(emptyList())
         recyclerSearch.adapter = adapterB
         recyclerSearch.layoutManager = GridLayoutManager(context, 2)

@@ -47,11 +47,9 @@
             android:id="@+id/search"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:iconifiedByDefault="false"
-            android:searchHintIcon="@null"
-            android:queryHint="Buscar..."
-            android:background="@color/cardview_light_background"
-            android:elevation="30dp"/>
+            app:queryHint="Buscar..."
+            app:iconifiedByDefault="false"
+            android:background="@drawable/search_design" />
 
     </LinearLayout>
 
