@@ -58,29 +58,34 @@ class RegitroClienteViewModel : ViewModel() {
             }
     }
 
-    private fun insertarInfoBD(usuarioC: String, correoC: String){
+    private fun insertarInfoBD(usuarioC: String, correoC: String) {
         val db = FirebaseFirestore.getInstance()
 
-        val  uidBD = firebaseAuth.uid
+        val uidBD = firebaseAuth.uid
         val tiempoBD = Constantes().obtenerTiempoD()
 
-        val datosAdministrador = hashMapOf(
-            "uid" to  uidBD,
-            "usuario" to  usuarioC,
+        val datosCliente = hashMapOf(
+            "uid" to uidBD,
+            "usuario" to usuarioC,
             "correo" to correoC,
-            "tipoUsuario" to  "cliente",
+            "tipoUsuario" to "cliente",
             "tiempo_registro" to tiempoBD
         )
 
-        db.collection("usuarios")
-            .add(datosAdministrador)
-            .addOnSuccessListener {
-                userRegisterCStatus.value = true
-            }
-            .addOnFailureListener {e ->
-                userRegisterCStatus.value = false
-                mensajeError.value ="Fallo el registro en la Base de Datos debido a ${e.message}"
-            }
+        if (uidBD != null) {
+            db.collection("usuarios").document(uidBD).set(datosCliente)
+                .addOnSuccessListener {
+                    userRegisterCStatus.value = true
+                }
+                .addOnFailureListener { e ->
+                    userRegisterCStatus.value = false
+                    mensajeError.value = "Fallo el registro en la Base de Datos debido a ${e.message}"
+                }
+        } else {
+            userRegisterCStatus.value = false
+            mensajeError.value = "Error al obtener UID del usuario."
+        }
     }
+
 
 }

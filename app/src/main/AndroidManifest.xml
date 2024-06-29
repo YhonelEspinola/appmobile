@@ -33,6 +33,7 @@
         <activity android:name=".login.LoginActivity"/>
         <activity android:name=".recuperarContrasenia.RecuperarContraseniaActivity"/>
         <activity android:name=".registrarUsuario.RegistrarUsuarioActivity"/>
+        <activity android:name=".registroCliente.RegistroClienteActivity"/>
         <activity android:name=".gestionAdmid.GestionAdminActivity"/>
         <activity android:name=".editProductos.EditProductosActivity"/>
         <activity android:name=".detallePedidoAdmid.DetallePedidoAdmidActivity"/>

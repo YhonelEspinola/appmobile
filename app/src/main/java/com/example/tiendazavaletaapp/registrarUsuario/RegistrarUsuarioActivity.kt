@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.tiendazavaletaapp.Constantes
 import com.example.tiendazavaletaapp.databinding.ActivityRegistrarUsuarioBinding
 import com.example.tiendazavaletaapp.gestionAdmid.GestionAdminActivity
+import com.example.tiendazavaletaapp.login.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -42,6 +43,10 @@ class RegistrarUsuarioActivity : AppCompatActivity() {
             progressDialog.show()
 
             viewModel.validarInformacion(usuario,correo,password,cPassword)
+        }
+
+        binding.textRegistroAdmin.setOnClickListener {
+            startActivity(Intent(this,LoginActivity::class.java))
         }
 
         observeLiveData()

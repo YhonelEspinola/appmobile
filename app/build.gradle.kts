@@ -51,8 +51,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.firebase.firestore.ktx)
     implementation(libs.firebase.storage.ktx)
-    implementation(libs.firebaseAuth)
-    implementation(libs.firebase.auth.ktx)/*Autentificacion*/
+    implementation(libs.firebaseAuth)/*Autentificacion*/
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

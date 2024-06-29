@@ -62,6 +62,17 @@
             android:textColor="@color/black"
             android:drawableEnd="@drawable/cart"
             android:backgroundTint="@color/button_admin_pedidos"/>
+        <Button
+            android:id="@+id/btnButtonAdmin"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:text="Nuevo Administrador"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:drawableEnd="@drawable/person"
+            android:backgroundTint="@color/gray"/>
 
 
     </LinearLayout>
