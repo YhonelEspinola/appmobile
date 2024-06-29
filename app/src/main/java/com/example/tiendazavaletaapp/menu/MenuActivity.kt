@@ -80,6 +80,15 @@ class MenuActivity: AppCompatActivity() {
             super.onBackPressed()
             finish()
         }
+
+    }
+    override fun onResume() {
+        super.onResume()
+        val nav_view = findViewById<BottomNavigationView>(R.id.nav_view)
+        val fragment = supportFragmentManager.findFragmentById(R.id.fragment_menu)
+        if (fragment != null) {
+            nav_view.selectedItemId = getFragmentMenuItemId(fragment)
+        }
     }
 
     fun openFragment(fragment: Fragment) {
@@ -110,6 +119,7 @@ class MenuActivity: AppCompatActivity() {
         if (firebaseAuth!!.currentUser==null){
             startActivity(Intent(this, LoginActivity::class.java))
             Toast.makeText(this,"Usuario no logeado", Toast.LENGTH_SHORT).show()
+
         }else{
             val currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_menu)
 
