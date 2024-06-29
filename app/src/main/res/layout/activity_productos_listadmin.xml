@@ -36,27 +36,27 @@
         app:tint="@color/white"
         />
 
-    <com.google.android.material.textfield.TextInputLayout
+    <LinearLayout
         android:id="@+id/buscador"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:layout_margin="16dp"
         app:layout_constraintTop_toBottomOf="@+id/cabecera"
         >
-        <com.google.android.material.textfield.TextInputEditText
+        <androidx.appcompat.widget.SearchView
             android:id="@+id/search"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Buscar producto"
-            android:padding="10dp"
-            android:drawableEnd="@drawable/search_icon"
-            />
+            android:layout_height="40dp"
+            android:iconifiedByDefault="false"
+            android:searchHintIcon="@null"
+            android:queryHint="Buscar..."
+            android:background="@color/cardview_light_background"
+            android:elevation="30dp"/>
 
-    </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerProductosListAdmin"
-
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@+id/buscador"
