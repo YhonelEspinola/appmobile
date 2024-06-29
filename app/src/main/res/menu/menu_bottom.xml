@@ -10,20 +10,17 @@
         android:id="@+id/itemSearch"
         android:title="Buscar"
         android:icon="@drawable/search_icon"/>
+
     <item
         android:id="@+id/itemCar"
         android:title="Carrito"
         android:icon="@drawable/car_icon"/>
 
-    <item
-        android:id="@+id/itemWish"
-        android:title="Deseados"
-        android:icon="@drawable/heart_icon"/>
-    <item
-        android:id="@+id/itemProfile"
-        android:title="Perfil"
-        android:icon="@drawable/baseline_person_24"/>
+        <item
+            android:id="@+id/itemProfile"
+            android:title="Perfil"
+            android:icon="@drawable/baseline_person_24"/>
 
 
 
-</menu>
+    </menu>

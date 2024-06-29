@@ -37,6 +37,7 @@
         <activity android:name=".gestionAdmid.GestionAdminActivity"/>
         <activity android:name=".editProductos.EditProductosActivity"/>
         <activity android:name=".detallePedidoAdmid.DetallePedidoAdmidActivity"/>
+        <activity android:name=".detalleProducto.DetalleProductoActivity"/>
 
 
     </application>

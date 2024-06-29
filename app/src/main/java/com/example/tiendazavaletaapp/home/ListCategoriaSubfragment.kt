@@ -51,7 +51,7 @@ class ListCategoriaSubfragment: Fragment() {
                     val marca = document.getString("marca") ?: ""
                     val categoria = document.getString("categoria") ?: ""
                     val codigo = document.id
-                    val precio = document.getDouble("precio") ?: 0.0
+                    val precio = document.getDouble("precio") ?: 0.00
                     val imgProducto = document.getString("imgProducto") ?: ""
                     val stock = document.getLong("stock")?.toInt() ?: 0
                     val descripcion = document.getString("descripcion") ?: ""

@@ -43,7 +43,7 @@
                 android:id="@+id/recyclerMasVendidos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:listitem="@layout/item_p_masvendido"
+                tools:listitem="@layout/item_producto_inicio"
 
                 />
 
@@ -88,7 +88,7 @@
                 android:id="@+id/recyclerRecomendado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:listitem="@layout/item_p_masvendido"
+                tools:listitem="@layout/item_producto_inicio"
 
                 />
 

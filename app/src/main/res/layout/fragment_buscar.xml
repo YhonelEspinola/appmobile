@@ -12,21 +12,23 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/cabecera"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:gravity="center"
-        android:background="@color/menu">
+        >
 
-        <SearchView
+        <androidx.appcompat.widget.SearchView
             android:id="@+id/search"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_margin="12dp"
-            android:iconifiedByDefault="false"
-            android:searchHintIcon="@null"
-            android:queryHint="Buscar..."
-            android:background="@color/cardview_light_background"
-            android:elevation="30dp"/>
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginBottom="10dp"
+            app:queryHint="Buscar..."
+            app:iconifiedByDefault="false"
+            android:background="@drawable/search_design"
 
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -43,8 +45,8 @@
             android:id="@+id/recyclerSearch"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="80dp"
-            tools:listitem="@layout/item_wish" />
+            android:layout_marginTop="82dp"
+            tools:listitem="@layout/item_producto" />
 
     </LinearLayout>
 

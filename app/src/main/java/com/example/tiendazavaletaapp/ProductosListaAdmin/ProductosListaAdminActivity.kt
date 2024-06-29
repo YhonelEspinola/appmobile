@@ -3,8 +3,8 @@ package com.example.tiendazavaletaapp.ProductosListaAdmin
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tiendazavaletaapp.R
@@ -31,6 +31,20 @@ class ProductosListaAdminActivity: AppCompatActivity() {
             startActivity(intent)
         }
         listProductos()
+
+        val searchView = findViewById<SearchView>(R.id.search)
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                query?.let { adapterPLA.filter(it) }
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                newText?.let { adapterPLA.filter(it) }
+                return false
+            }
+        })
     }
 
     private fun listProductos(){
