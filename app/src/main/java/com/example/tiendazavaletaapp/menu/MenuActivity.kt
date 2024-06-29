@@ -50,12 +50,6 @@ class MenuActivity: AppCompatActivity() {
                     true
                 }
 
-                /*R.id.itemWish -> {
-                    val fragment = WishFragment.newInstance()
-                    openFragment(fragment)
-                    true
-                }*/
-
                 R.id.itemProfile -> {
                     comprobarSesionC()
                     true
@@ -104,7 +98,6 @@ class MenuActivity: AppCompatActivity() {
             is HomeFragment -> R.id.itemHome
             is BuscarFragment -> R.id.itemSearch
             is CarritoFragment -> R.id.itemCar
-            /*is WishFragment -> R.id.itemWish*/
             is PerfilFragment, is PerfilEditFragment, is PedidosUserFragment, is VerMasFragment -> R.id.itemProfile
             else -> R.id.itemHome // Default case
         }
@@ -116,7 +109,15 @@ class MenuActivity: AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
             Toast.makeText(this,"Usuario no logeado", Toast.LENGTH_SHORT).show()
         }else{
-            openFragment(PerfilFragment.newInstance())
+            val currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_menu)
+
+            when(currentFragment){
+                is PerfilFragment -> openFragment(PerfilFragment.newInstance())
+                is PerfilEditFragment -> openFragment(PerfilEditFragment.newInstance())
+                is PedidosUserFragment -> openFragment(PedidosUserFragment.newInstance())
+                is VerMasFragment -> openFragment(VerMasFragment.newInstance())
+                else -> openFragment(PerfilFragment.newInstance())
+            }
         }
     }
 }
