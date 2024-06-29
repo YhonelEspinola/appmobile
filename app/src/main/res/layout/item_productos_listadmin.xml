@@ -21,6 +21,8 @@
                 android:layout_height="wrap_content"
                 android:text="Titulo"
                 android:layout_margin="5dp"
+                android:maxLines="2"
+                android:ellipsize="end"
                 android:textStyle="bold"
                 android:id="@+id/textTitulo"
                 />
