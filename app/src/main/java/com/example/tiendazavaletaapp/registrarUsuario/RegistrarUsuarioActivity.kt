@@ -45,10 +45,6 @@ class RegistrarUsuarioActivity : AppCompatActivity() {
             viewModel.validarInformacion(usuario,correo,password,cPassword)
         }
 
-        binding.textRegistroAdmin.setOnClickListener {
-            startActivity(Intent(this,LoginActivity::class.java))
-        }
-
         observeLiveData()
     }
 
