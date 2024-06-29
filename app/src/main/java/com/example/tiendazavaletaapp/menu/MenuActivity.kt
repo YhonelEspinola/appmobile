@@ -63,8 +63,10 @@ class MenuActivity: AppCompatActivity() {
             if (fragment != null && fragment::class.java in setOf(
                     HomeFragment::class.java,
                     BuscarFragment::class.java,
+                    PerfilEditFragment::class.java,
+                    PedidosUserFragment::class.java,
+                    VerMasFragment::class.java,
                     CarritoFragment::class.java,
-                    /*WishFragment::class.java,*/
                     PerfilFragment::class.java)) {
                 nav_view.selectedItemId = getFragmentMenuItemId(fragment)
             }
