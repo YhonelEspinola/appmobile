@@ -6,18 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tiendazavaletaapp.ProductosListaAdmin.ProductosListaAdmin
 import com.example.tiendazavaletaapp.R
 import com.example.tiendazavaletaapp.home.BuscarAdapter
+import com.example.tiendazavaletaapp.home.ListCategoriaViewModel
 import com.google.firebase.firestore.FirebaseFirestore
 
 class BuscarFragment : Fragment() {
-    private val db = FirebaseFirestore.getInstance()
-    private val colleccion = db.collection("producto")
     private lateinit var adapterB: BuscarAdapter
-
+    private lateinit var viewModel: ListCategoriaViewModel
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -29,13 +29,21 @@ class BuscarFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel = ViewModelProvider(this)[ListCategoriaViewModel::class.java]
         val recyclerSearch = view.findViewById<RecyclerView>(R.id.recyclerSearch)
         val searchView = view.findViewById<SearchView>(R.id.search)
-        adapterB = BuscarAdapter(emptyList())
+        adapterB = BuscarAdapter()
         recyclerSearch.adapter = adapterB
         recyclerSearch.layoutManager = GridLayoutManager(context, 2)
 
-        listBuscar()
+        viewModel.listProductos("")
+        viewModel.listProductosLCat.observe(viewLifecycleOwner) {
+
+            if (it.isNotEmpty()) {
+                adapterB.setDatos(it)
+            }
+
+        }
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -52,25 +60,5 @@ class BuscarFragment : Fragment() {
 
     companion object {
         fun newInstance(): BuscarFragment = BuscarFragment()
-    }
-
-    private fun listBuscar() {
-        colleccion.get()
-            .addOnSuccessListener { querySnapshot ->
-                val listProductos = mutableListOf<ProductosListaAdmin>()
-                for (document in querySnapshot) {
-                    val nProducto = document.getString("nProducto") ?: ""
-                    val marca = document.getString("marca") ?: ""
-                    val categoria = document.getString("categoria") ?: ""
-                    val codigo = document.id
-                    val precio = document.getDouble("precio") ?: 0.0
-                    val imgProducto = document.getString("imgProducto") ?: ""
-                    val stock = document.getLong("stock")?.toInt() ?: 0
-                    val descripcion = document.getString("descripcion") ?: ""
-                    val modelo = ProductosListaAdmin(nProducto, marca, categoria, codigo, precio, imgProducto, stock, descripcion)
-                    listProductos.add(modelo)
-                }
-                adapterB.setDatos(listProductos)
-            }
     }
 }

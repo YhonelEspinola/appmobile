@@ -5,8 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tiendazavaletaapp.ProductosListaAdmin.ProductosListaAdmin
 
-class BuscarAdapter(private var productos: List<ProductosListaAdmin>) : RecyclerView.Adapter<ListCategoriaViewHolder>() {
+class BuscarAdapter() : RecyclerView.Adapter<ListCategoriaViewHolder>() {
 
+    private var productos= emptyList<ProductosListaAdmin>()
     private var productosFiltrados: List<ProductosListaAdmin> = productos
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListCategoriaViewHolder {

@@ -48,7 +48,13 @@ class ProductosHomeViewHolder (inflater: LayoutInflater, viewGroup: ViewGroup):
         textPrecio?.text=String.format("%.2f", productoshome.precio)
         textStock?.text= productoshome.stock.toString()
         textDescripcion?.text=productoshome.descripcion
-        Picasso.get().load(productoshome.imgProducto).into(imgProducto)
+        imgProducto?.let{
+            Picasso.get()
+                .load(productoshome.imgProducto)
+                .placeholder(R.drawable.img_carga)
+                .error(R.drawable.img_error)
+                .into(it)
+        }
 
         itemProducto?.setOnClickListener {
             val intent = Intent(itemView.context, DetalleProductoActivity::class.java).apply {

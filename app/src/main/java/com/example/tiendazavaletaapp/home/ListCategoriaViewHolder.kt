@@ -48,7 +48,14 @@ class ListCategoriaViewHolder(inflater: LayoutInflater, viewGroup: ViewGroup):
         textPrecio?.text=String.format("%.2f", productosListaAdmin.precio)
         textDescripcion?.text=productosListaAdmin.descripcion
         textStock?.text= productosListaAdmin.stock.toString()
-        Picasso.get().load(productosListaAdmin.imgProducto).into(imgProducto)
+        imgProducto?.let{
+            Picasso.get()
+                .load(productosListaAdmin.imgProducto)
+                .placeholder(R.drawable.img_carga)
+                .error(R.drawable.img_error)
+                .into(it)
+        }
+
 
         itemProducto?.setOnClickListener {
             val intent = Intent(itemView.context, DetalleProductoActivity::class.java).apply {

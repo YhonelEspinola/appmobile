@@ -5,8 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tiendazavaletaapp.ProductosListaAdmin.ProductosListaAdmin
 
-class ProductosHomeAdapter(var list:List<ProductosListaAdmin>): RecyclerView.Adapter<ProductosHomeViewHolder>() {
+class ProductosHomeAdapter(): RecyclerView.Adapter<ProductosHomeViewHolder>() {
 
+    private var list= emptyList<ProductosListaAdmin>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductosHomeViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         return ProductosHomeViewHolder(inflater,parent)
@@ -25,4 +26,5 @@ class ProductosHomeAdapter(var list:List<ProductosListaAdmin>): RecyclerView.Ada
         this.list = datos
         notifyDataSetChanged()
     }
+
 }

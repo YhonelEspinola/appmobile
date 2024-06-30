@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tiendazavaletaapp.ProductosListaAdmin.ProductosListaAdmin
@@ -13,9 +14,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class ListCategoriaSubfragment: Fragment() {
 
-    private  val db= FirebaseFirestore.getInstance()
-    private val colleccion= db.collection("producto")
-    private lateinit var adapterPLA: ListCategoriaAdapter
+
+    private lateinit var viewModel: ListCategoriaViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,39 +28,29 @@ class ListCategoriaSubfragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel = ViewModelProvider(this)[ListCategoriaViewModel::class.java]
+
         val recyclerPC = view.findViewById<RecyclerView>(R.id.recyclerPC)
-        adapterPLA = ListCategoriaAdapter(emptyList())
+        val adapterPLA = ListCategoriaAdapter()
         recyclerPC.adapter=adapterPLA
         recyclerPC.layoutManager= GridLayoutManager(context,2)
 
 
-        val categoria = arguments?.getString("catselect").toString()
-        listProductos(categoria)
+        val catego = arguments?.getString("catselect").toString()
+        viewModel.listProductos(catego)
+        viewModel.listProductosLCat.observe(viewLifecycleOwner) {
+
+            if (it.isNotEmpty()) {
+                adapterPLA.setDatos(it)
+            }
+
+        }
+
     }
 
     companion object{
         fun newInstance() : ListCategoriaSubfragment = ListCategoriaSubfragment()
     }
 
-    private fun listProductos(categoria: String){
-        colleccion.whereEqualTo("categoria", categoria).get()
-            .addOnSuccessListener { querySnapshot ->
-                val listProductosLCat = mutableListOf<ProductosListaAdmin>()
-                for(document in querySnapshot){
-                    val nProducto = document.getString("nProducto") ?: ""
-                    val marca = document.getString("marca") ?: ""
-                    val categoria = document.getString("categoria") ?: ""
-                    val codigo = document.id
-                    val precio = document.getDouble("precio") ?: 0.00
-                    val imgProducto = document.getString("imgProducto") ?: ""
-                    val stock = document.getLong("stock")?.toInt() ?: 0
-                    val descripcion = document.getString("descripcion") ?: ""
-                    if(document != null){
-                        val modelo= ProductosListaAdmin(nProducto,marca,categoria,codigo,precio,imgProducto,stock,descripcion)
-                        listProductosLCat.add((modelo))
-                    }
-                }
-                adapterPLA.setDatos(listProductosLCat)
-            }
-    }
+
 }
