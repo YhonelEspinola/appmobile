@@ -6,10 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import android.widget.Toast
+import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 
 import com.example.tiendazavaletaapp.R
 import com.example.tiendazavaletaapp.menu.MenuActivity
@@ -20,6 +22,8 @@ import com.google.firebase.auth.FirebaseAuth
 class PerfilFragment :Fragment(){
 
     private var  firebaseAuth: FirebaseAuth?=null
+
+    private lateinit var viewModel: PerfilViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,10 +38,22 @@ class PerfilFragment :Fragment(){
 
         firebaseAuth = FirebaseAuth.getInstance()
 
+        viewModel = ViewModelProvider(requireActivity()).get(PerfilViewModel::class.java)
+
         val miPerfil: LinearLayout = view.findViewById(R.id.miPerfil)
         val misCompras: LinearLayout = view.findViewById(R.id.misCompras)
         val verMas: LinearLayout = view.findViewById(R.id.verMas)
         val cerarSesion : AppCompatButton = view.findViewById(R.id.logout_button)
+
+        val nombreUsuario = view.findViewById<TextView>(R.id.user_name)
+
+        // Observar los cambios en el LiveData
+        viewModel.nombreU.observe(viewLifecycleOwner, Observer { nombre ->
+            nombreUsuario.text = nombre
+        })
+        // Llamar a la función para leer la información del usuario
+        viewModel.leerInformacion()
+
 
         miPerfil.setOnClickListener {
             val newFragment = PerfilEditFragment.newInstance()
@@ -51,7 +67,6 @@ class PerfilFragment :Fragment(){
             val newFragment = VerMasFragment.newInstance()
             openSubFragment(newFragment)
         }
-
         cerarSesion.setOnClickListener {
             cerrarSesionM()
         }
