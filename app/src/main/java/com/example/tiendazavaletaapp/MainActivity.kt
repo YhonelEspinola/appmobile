@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         val userId = firebaseAuth.currentUser?.uid
         if (userId == null) {
             startActivity(Intent(this,MenuActivity::class.java))
+            finish()
             Toast.makeText(this,"Bienvenido a Comercial Zavaleta", Toast.LENGTH_SHORT).show()
         } else {
             FirebaseFirestore.getInstance().collection("usuarios").document(userId).get()
