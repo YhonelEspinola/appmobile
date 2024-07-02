@@ -25,13 +25,6 @@ class DetalleProductoActivity: AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-
-        if (firebaseAuth.currentUser == null) {
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish()
-            return
-        }
-
         val imagen = findViewById<ImageView>(R.id.imgProducto)
         val textTitulo = findViewById<TextView>(R.id.textTitulo)
         val textMarca = findViewById<TextView>(R.id.textMarca)
@@ -67,14 +60,16 @@ class DetalleProductoActivity: AppCompatActivity() {
         Picasso.get().load(imgProducto).into(imagen)
 
         btnAgregarCarrito.setOnClickListener {
+            if (firebaseAuth.currentUser == null) {
+                Toast.makeText(this, "Necesita iniciar sesion", Toast.LENGTH_SHORT).show()
+            }else{
             agregarAlCarrito(
                 codProducto,
                 nProducto,
                 marca,
                 precio,
-                imgProducto,
-                stock
-            )
+                imgProducto
+            )}
         }
     }
 
@@ -84,7 +79,6 @@ class DetalleProductoActivity: AppCompatActivity() {
         marca: String?,
         precio: Double,
         imgProducto: String?,
-        stock: Int
     ) {
         val userId = firebaseAuth.currentUser?.uid
 
