@@ -61,7 +61,7 @@ class ProductosHomeViewHolder (inflater: LayoutInflater, viewGroup: ViewGroup):
                 putExtra("nProducto", productoshome.nProducto)
                 putExtra("marca", productoshome.marca)
                 putExtra("categoria", productoshome.categoria)
-                putExtra("codigo", productoshome.codProducto)
+                putExtra("productId", productoshome.codProducto)
                 putExtra("precio", productoshome.precio)
                 putExtra("imgProducto", productoshome.imgProducto)
                 putExtra("stock", productoshome.stock)

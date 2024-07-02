@@ -164,12 +164,7 @@
                 android:maxLines="9"
                 android:text="Lolar"/>
         </LinearLayout>
-        <TextView
-            android:id="@+id/textCodigo"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:visibility="invisible"
-            />
+
 
     </LinearLayout>
 

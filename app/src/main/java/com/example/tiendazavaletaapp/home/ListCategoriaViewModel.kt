@@ -28,7 +28,7 @@ class ListCategoriaViewModel: ViewModel(){
                     val codigo = document.id
                     val precio = data["precio"] as? Double ?: 0.0
                     val imgProducto = data["imgProducto"] as? String ?: ""
-                    val stock = data["stock"] as? Int ?: 0
+                    val stock = (data["stock"] as? Long)?.toInt() ?: 0
                     val descripcion = data["descripcion"] as? String ?: ""
 
                         val modelo= ProductosListaAdmin(nProducto,marca,categoria,codigo,precio,imgProducto,stock,descripcion)
@@ -55,7 +55,7 @@ class ListCategoriaViewModel: ViewModel(){
                 val codigo = document.id
                 val precio = data["precio"] as? Double ?: 0.0
                 val imgProducto = data["imgProducto"] as? String ?: ""
-                val stock = data["stock"] as? Int ?: 0
+                val stock = (data["stock"] as? Long)?.toInt() ?: 0
                 val descripcion = data["descripcion"] as? String ?: ""
 
                 val modelo= ProductosListaAdmin(nProducto,marca,categoria,codigo,precio,imgProducto,stock,descripcion)
@@ -82,7 +82,7 @@ class ListCategoriaViewModel: ViewModel(){
                 val codigo = document.id
                 val precio = data["precio"] as? Double ?: 0.0
                 val imgProducto = data["imgProducto"] as? String ?: ""
-                val stock = data["stock"] as? Int ?: 0
+                val stock = (data["stock"] as? Long)?.toInt() ?: 0
                 val descripcion = data["descripcion"] as? String ?: ""
 
                 val modelo= ProductosListaAdmin(nProducto,marca,categoria,codigo,precio,imgProducto,stock,descripcion)
