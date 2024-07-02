@@ -66,28 +66,28 @@
 
             <Button
                 android:id="@+id/btnDecrement"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="-"/>
 
             <TextView
                 android:id="@+id/textCantidad"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:textSize="15sp"
                 android:layout_marginHorizontal="10dp"/>
 
             <Button
                 android:id="@+id/btnIncrement"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="+"/>
         </LinearLayout>
 
         <Button
             android:id="@+id/btnEliminar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:backgroundTint="@color/black"
             android:text="Eliminar"
             android:textColor="@color/white"/>
