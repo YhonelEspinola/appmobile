@@ -64,47 +64,4 @@ class HomeSubfragment: Fragment() {
         fun newInstance() : HomeSubfragment = HomeSubfragment()
     }
 
-    private fun listMasVendidos(){
-        colleccion.get()
-            .addOnSuccessListener { querySnapshot ->
-                val listProductosListaAdmin = mutableListOf<ProductosListaAdmin>()
-                for(document in querySnapshot){
-                    val nProducto = document.getString("nProducto") ?: ""
-                    val marca = document.getString("marca") ?: ""
-                    val categoria = document.getString("categoria") ?: ""
-                    val codigo = document.id
-                    val precio = document.getDouble("precio") ?: 0.0
-                    val imgProducto = document.getString("imgProducto") ?: ""
-                    val stock = document.getLong("stock")?.toInt() ?: 0
-                    val descripcion = document.getString("descripcion") ?: ""
-                    if(document != null){
-                        val modelo= ProductosListaAdmin(nProducto,marca,categoria,codigo,precio,imgProducto,stock,descripcion)
-                        listProductosListaAdmin.add((modelo))
-                    }
-                }
-                adapterMV.setDatos(listProductosListaAdmin)
-            }
-    }
-
-    private fun listRecomendado(){
-        colleccion.get()
-            .addOnSuccessListener { querySnapshot ->
-                val listProductosListaAdmin = mutableListOf<ProductosListaAdmin>()
-                for(document in querySnapshot){
-                    val nProducto = document.getString("nProducto") ?: ""
-                    val marca = document.getString("marca") ?: ""
-                    val categoria = document.getString("categoria") ?: ""
-                    val codigo = document.id
-                    val precio = document.getDouble("precio") ?: 0.0
-                    val imgProducto = document.getString("imgProducto") ?: ""
-                    val stock = document.getLong("stock")?.toInt() ?: 0
-                    val descripcion = document.getString("descripcion") ?: ""
-                    if(document != null){
-                        val modelo= ProductosListaAdmin(nProducto,marca,categoria,codigo,precio,imgProducto,stock,descripcion)
-                        listProductosListaAdmin.add((modelo))
-                    }
-                }
-                adapterR.setDatos(listProductosListaAdmin)
-            }
-    }
 }
