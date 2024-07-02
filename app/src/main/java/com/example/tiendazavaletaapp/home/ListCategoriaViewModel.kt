@@ -13,10 +13,8 @@ class ListCategoriaViewModel: ViewModel(){
     val listProductosR = MutableLiveData<List<ProductosListaAdmin>>()
 
     fun listProductos(catego: String){
-        val query = if (catego.isNullOrEmpty())
-            colleccion.get()
-        else
-        colleccion.whereEqualTo("categoria", catego).get()
+        val query = if (catego.isNullOrEmpty()){
+            colleccion.get()} else {colleccion.whereEqualTo("categoria", catego).get()}
 
             query.addOnSuccessListener { querySnapshot ->
                 var newList = arrayListOf<ProductosListaAdmin>()

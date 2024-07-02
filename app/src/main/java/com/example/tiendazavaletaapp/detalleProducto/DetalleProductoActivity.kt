@@ -43,13 +43,12 @@ class DetalleProductoActivity: AppCompatActivity() {
 
         val intent = intent
 
-        val codProducto = intent.getStringExtra("productId")
+        val codProducto = intent.getStringExtra("codigo")
         if (codProducto == null) {
             Toast.makeText(this, "Código de producto no encontrado", Toast.LENGTH_SHORT).show()
             finish()
             return
         }
-
         val nProducto = intent.getStringExtra("nProducto")
         val marca = intent.getStringExtra("marca")
         val categoria = intent.getStringExtra("categoria")
