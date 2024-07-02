@@ -22,6 +22,7 @@
     <color name="icon_color">#FF000000</color>
     <color name="color_boton_categ">#8E8E8E</color>
     <color name="linea">#54DCDCDC</color>
+    <color name="precio_carrito">#FFFFFFFF</color>
 
     //colores para el BottomNavigationView
     <color name="menu_bottom_navigation">#FFFFFFFF</color>

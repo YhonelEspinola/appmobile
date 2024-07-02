@@ -19,7 +19,6 @@ class CarritoViewHolder(inflater: LayoutInflater, viewGroup: ViewGroup) : Recycl
     private var textCantidad: TextView? = null
     private var btnIncrement: Button? = null
     private var btnDecrement: Button? = null
-    private var btnEliminar: Button? = null
 
     private val db = FirebaseFirestore.getInstance()
 
@@ -31,7 +30,6 @@ class CarritoViewHolder(inflater: LayoutInflater, viewGroup: ViewGroup) : Recycl
         textCantidad = itemView.findViewById(R.id.textCantidad)
         btnIncrement = itemView.findViewById(R.id.btnIncrement)
         btnDecrement = itemView.findViewById(R.id.btnDecrement)
-        btnEliminar = itemView.findViewById(R.id.btnEliminar)
     }
 
     fun bind(carrito: Carrito, adapter: CarritoAdapter) {
@@ -54,13 +52,6 @@ class CarritoViewHolder(inflater: LayoutInflater, viewGroup: ViewGroup) : Recycl
             }
         }
 
-        btnEliminar?.setOnClickListener {
-            db.collection("carrito").document(carrito.userId + "_" + carrito.codProducto)
-                .delete()
-                .addOnSuccessListener {
-                    adapter.removeItem(adapterPosition)
-                }
-        }
     }
 
     private fun updateCarrito(carrito: Carrito, newQuantity: Int, adapter: CarritoAdapter) {

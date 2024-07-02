@@ -11,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tiendazavaletaapp.R
@@ -37,6 +38,7 @@ class CarritoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
         firebaseAuth = FirebaseAuth.getInstance()
 
@@ -84,6 +86,9 @@ class CarritoFragment : Fragment() {
                             updateTotal()
                         }
                     })
+                    val swipeHandler = SwipeToDeleteCallback(adapterC, db)
+                    val itemTouchHelper = ItemTouchHelper(swipeHandler)
+                    itemTouchHelper.attachToRecyclerView(recyclerCarrito)
                 }
                 .addOnFailureListener { exception ->
                     Toast.makeText(activity, "Error al obtener el carrito", Toast.LENGTH_SHORT).show()
@@ -96,6 +101,7 @@ class CarritoFragment : Fragment() {
         btnProcesarCompra.setOnClickListener {
             comprobarSesion()
         }
+
     }
 
     private fun updateTotal() {

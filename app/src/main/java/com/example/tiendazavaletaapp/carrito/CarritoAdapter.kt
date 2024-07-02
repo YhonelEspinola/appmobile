@@ -14,7 +14,9 @@ class CarritoAdapter(private val list: MutableList<Carrito>) : RecyclerView.Adap
     override fun getItemCount(): Int {
         return list.size
     }
-
+    fun getItem(position: Int): Carrito {
+        return list[position]
+    }
     override fun onBindViewHolder(holder: CarritoViewHolder, position: Int) {
         val carrito = list[position]
         holder.bind(carrito, this)
