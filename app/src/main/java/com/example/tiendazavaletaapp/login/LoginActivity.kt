@@ -110,7 +110,7 @@ class LoginActivity : AppCompatActivity() {
                         if (role == "administrador") {
                             // Redirigir a la actividad de administrador
                             startActivity(Intent(this, GestionAdminActivity::class.java))
-                            finish()
+                            finishAffinity()
                         } else {
                             // Redirigir a la actividad de cliente
                             startActivity(Intent(this, MenuActivity::class.java))
