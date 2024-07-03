@@ -5,10 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
@@ -30,7 +32,7 @@ class PerfilEditFragment :Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(requireActivity()).get(PerfilViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity())[PerfilViewModel::class.java]
 
         val username : EditText = view.findViewById(R.id.edit_username)
         val email : EditText = view.findViewById(R.id.edit_email)
@@ -45,6 +47,14 @@ class PerfilEditFragment :Fragment(){
         // Llamar a la función para leer la información del usuario
         viewModel.leerInformacion()
 
+        val btnGuardar : Button = view.findViewById(R.id.save_button)
+        btnGuardar.setOnClickListener {
+            val nuevoNombre = username.text.toString().trim()
+
+            Toast.makeText(context, "Información actualizada exitosamente", Toast.LENGTH_SHORT).show()
+
+            viewModel.actualizarInformacion(nuevoNombre)
+        }
         val editPassword: EditText = view.findViewById(R.id.edit_password)
         editPassword.setOnClickListener {
             val intent = Intent(activity, CambiarContraPerfilActivity::class.java)

@@ -16,8 +16,10 @@ class PerfilViewModel : ViewModel() {
     // Variable liveData pública para que otras clases puedan observar los cambios en el correo del usuario
     val correoU: LiveData<String?> get() = _correoU
 
+    val db = FirebaseFirestore.getInstance().collection("usuarios") // Obtiene la colección "usuarios" en Firestore
+
     fun leerInformacion() {
-        val db = FirebaseFirestore.getInstance().collection("usuarios") // Obtiene la colección "usuarios" en Firestore
+
         val userId = FirebaseAuth.getInstance().uid ?: return // Obtiene el ID del usuario actual
 
         db.document(userId).get() // Obtenie el documento del usuario usando el ID del usuario
@@ -26,6 +28,21 @@ class PerfilViewModel : ViewModel() {
                 val correo = document.getString("correo") //Extrae el correo del documento
                 _nombreU.value = nombre // Actualiza el valor de la variable mutableLiveData con el nombre del usuario
                 _correoU.value = correo // Actualiza el valor de la variable mutableLiveData con el correo del usuario
+            }
+    }
+
+    fun actualizarInformacion(nombre: String) {
+        val userId = FirebaseAuth.getInstance().uid ?: return
+
+        val userUpdates = hashMapOf<String, Any>(
+            "usuario" to nombre
+        )
+
+        db.document(userId).update(userUpdates)
+            .addOnSuccessListener {
+                _nombreU.value = nombre
+            }
+            .addOnFailureListener { exception ->
             }
     }
 }
