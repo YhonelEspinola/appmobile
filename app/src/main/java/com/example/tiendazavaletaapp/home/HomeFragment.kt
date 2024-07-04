@@ -30,8 +30,7 @@ class HomeFragment: Fragment(), OnCategoriaClickListener {
             Categoria("Papeleria"),
             Categoria("Arte y Diseño"),
             Categoria("Mochilas"),
-            Categoria("Cuadernos"),
-            Categoria("Libretas"),
+            Categoria("Cuadernos, Libretas"),
             Categoria("Textos Escolares"),
         )
         val adapterC = CategoriaAdapter(listCategoria,this)
@@ -49,7 +48,7 @@ class HomeFragment: Fragment(), OnCategoriaClickListener {
             "Inicio" -> HomeSubfragment()
             "Utiles de oficina", "Papeleria",
             "Arte y Diseño", "Mochilas",
-            "Cuadernos", "Libretas",
+            "Cuadernos, Libretas",
             "Textos Escolares" -> ListCategoriaSubfragment()
             else -> HomeSubfragment()
         }
