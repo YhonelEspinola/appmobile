@@ -100,16 +100,46 @@ class EditProductosActivity :AppCompatActivity(){
         Picasso.get().load(imgProductoUrl).into(imgProducto)
 
         btnEditProductos.setOnClickListener{
-            if (selectedImageUri != null) {
-                uploadImageToStorage()
-            } else {
-                updateProductToFirestore(imgProductoUrl.toString())
-
+            if (validateFields()) {
+                if (selectedImageUri != null) {
+                    uploadImageToStorage()
+                } else {
+                    updateProductToFirestore(imgProductoUrl.toString())
+                }
             }
         }
 
     }
+    private fun validateFields(): Boolean {
+        val nProducto = edtTitulo.text.toString().trim()
+        val marca = edtMarca.text.toString().trim()
+        val categoria = edtCategoria.text.toString().trim()
+        val precioText = edtPrecio.text.toString().trim()
+        val descripcion = edtDescripcion.text.toString().trim()
+        val stockText = edtStock.text.toString().trim()
 
+        if (nProducto.isEmpty() || marca.isEmpty() || categoria.isEmpty() ||
+            precioText.isEmpty() || descripcion.isEmpty() || stockText.isEmpty()) {
+            Toast.makeText(this, "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show()
+            return false
+        }
+
+        try {
+            precioText.toDouble()
+        } catch (e: NumberFormatException) {
+            Toast.makeText(this, "El precio debe ser un número válido", Toast.LENGTH_SHORT).show()
+            return false
+        }
+
+        try {
+            stockText.toInt()
+        } catch (e: NumberFormatException) {
+            Toast.makeText(this, "El stock debe ser un número entero", Toast.LENGTH_SHORT).show()
+            return false
+        }
+
+        return true
+    }
     private fun uploadImageToStorage() {
         val filename = UUID.randomUUID().toString()
         val ref = storage.reference.child("$filename")

@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.tiendazavaletaapp.R
 import com.example.tiendazavaletaapp.gestionAdmid.GestionAdminActivity
 import com.google.android.material.textfield.TextInputEditText
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
@@ -60,7 +61,9 @@ class CreateProductosActivity : AppCompatActivity() {
         val btnCrearProductos = findViewById<Button>(R.id.btnCrearProductos)
         btnCrearProductos.setOnClickListener{
             if (selectedImageUri != null) {
-                uploadImageToStorage()
+                if (validateFields()) {
+                    uploadImageToStorage()
+                }
             } else {
                 Toast.makeText(this, "Por favor, selecciona una imagen", Toast.LENGTH_SHORT).show()
             }
@@ -89,6 +92,43 @@ class CreateProductosActivity : AppCompatActivity() {
         }
     }
 
+    private fun validateFields(): Boolean {
+        val edtTitulo: TextInputEditText = findViewById(R.id.edtTitulo)
+        val edtMarca: AutoCompleteTextView = findViewById(R.id.edtMarca)
+        val edtCategoria: AutoCompleteTextView = findViewById(R.id.edtCategoria)
+        val edtPrecio: TextInputEditText = findViewById(R.id.edtPrecio)
+        val edtDescripcion: TextInputEditText = findViewById(R.id.edtDescripcion)
+        val edtStock: TextInputEditText = findViewById(R.id.edtStock)
+
+        val nProducto = edtTitulo.text.toString().trim()
+        val marca = edtMarca.text.toString().trim()
+        val categoria = edtCategoria.text.toString().trim()
+        val precioText = edtPrecio.text.toString().trim()
+        val descripcion = edtDescripcion.text.toString().trim()
+        val stockText = edtStock.text.toString().trim()
+
+        if (nProducto.isEmpty() || marca.isEmpty() || categoria.isEmpty() ||
+            precioText.isEmpty() || descripcion.isEmpty() || stockText.isEmpty()) {
+            Toast.makeText(this, "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show()
+            return false
+        }
+
+        try {
+            precioText.toDouble()
+        } catch (e: NumberFormatException) {
+            Toast.makeText(this, "El precio debe ser un número válido", Toast.LENGTH_SHORT).show()
+            return false
+        }
+
+        try {
+            stockText.toInt()
+        } catch (e: NumberFormatException) {
+            Toast.makeText(this, "El stock debe ser un número entero", Toast.LENGTH_SHORT).show()
+            return false
+        }
+
+        return true
+    }
     private fun saveProductToFirestore(imageUrl: String) {
         val db = FirebaseFirestore.getInstance()
         val edtTitulo: TextInputEditText = findViewById(R.id.edtTitulo)
@@ -112,7 +152,8 @@ class CreateProductosActivity : AppCompatActivity() {
             "precio" to precio,
             "descripcion" to descripcion,
             "stock" to stock,
-            "imgProducto" to imageUrl
+            "imgProducto" to imageUrl,
+            "fecha" to Timestamp.now()
         )
 
         db.collection("producto")
