@@ -34,7 +34,7 @@ class PagoEntregraFragment : Fragment() {
         val textDirec : TextInputEditText = view.findViewById(R.id.textDirec)
         val textReferencia : TextInputEditText = view.findViewById(R.id.textReferencia)
 
-        viewModel.mensajeError.observe(viewLifecycleOwner, { error ->
+        viewModel.mensajeError.observe(viewLifecycleOwner) { error ->
             if (error.isNotEmpty()) {
                 when (error) {
                     "Ingrese su nombre" -> textNomApe.error = error
@@ -50,7 +50,7 @@ class PagoEntregraFragment : Fragment() {
                 textDirec.error = null
                 textReferencia.error = null
             }
-        })
+        }
         btnContinuar.setOnClickListener {
             val nombre = textNomApe.text.toString()
             val Dni = textDni.text.toString()

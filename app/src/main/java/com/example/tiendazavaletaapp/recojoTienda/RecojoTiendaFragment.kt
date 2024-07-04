@@ -32,7 +32,7 @@ class RecojoTiendaFragment : Fragment() {
         val textDni : TextInputEditText = view.findViewById(R.id.textDni)
 
 
-        viewModel.mensajeError.observe(viewLifecycleOwner, { error ->
+        viewModel.mensajeError.observe(viewLifecycleOwner) { error ->
             if (error.isNotEmpty()) {
                 when (error) {
                     "Ingrese su nombre" -> textNomApe.error = error
@@ -42,7 +42,7 @@ class RecojoTiendaFragment : Fragment() {
                 textNomApe.error = null
                 textDni.error = null
             }
-        })
+        }
         btnContinuarRecojo.setOnClickListener {
 
             val nombre = textNomApe.text.toString()

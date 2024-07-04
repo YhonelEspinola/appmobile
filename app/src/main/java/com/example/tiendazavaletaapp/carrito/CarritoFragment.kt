@@ -98,8 +98,13 @@ class CarritoFragment : Fragment() {
         }
 
         val btnProcesarCompra: Button = view.findViewById(R.id.btnProcesarCompra)
+
         btnProcesarCompra.setOnClickListener {
-            comprobarSesion()
+            if(adapterC.itemCount == 0){
+                Toast.makeText(activity, "El carrito está vacío", Toast.LENGTH_SHORT).show()
+            }else {
+                comprobarSesion()
+            }
         }
 
     }

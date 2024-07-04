@@ -61,16 +61,15 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Total :"
+                        android:text="Total: S/ "
                         android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:layout_marginEnd="10dp"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/textTotal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="S/ 0.0"
+                        android:text=""
                         android:textSize="18sp"
                         android:textStyle="bold"/>
 

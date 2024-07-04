@@ -29,6 +29,9 @@ class MenuActivity: AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
+        var valor = intent.getIntExtra("valor",0)
+
+
         val nav_view = findViewById<BottomNavigationView>(R.id.nav_view)
         nav_view.setOnItemSelectedListener {
             when (it.itemId) {
@@ -71,7 +74,15 @@ class MenuActivity: AppCompatActivity() {
                 nav_view.selectedItemId = getFragmentMenuItemId(fragment)
             }
         }
-        nav_view.selectedItemId = R.id.itemHome
+
+        if(valor==1){
+            nav_view.selectedItemId = R.id.itemCar
+        }else{
+            nav_view.selectedItemId = R.id.itemHome
+        }
+
+
+
     }
     override fun onBackPressed() {
         if (supportFragmentManager.backStackEntryCount > 1) {

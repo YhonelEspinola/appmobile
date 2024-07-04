@@ -10,6 +10,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tiendazavaletaapp.R
 import com.example.tiendazavaletaapp.carrito.Carrito
+import com.example.tiendazavaletaapp.menu.MenuActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.squareup.picasso.Picasso
@@ -133,7 +134,7 @@ class DetalleProductoActivity: AppCompatActivity() {
         dialog.show()
 
         val btnCerra = dialogView.findViewById<ImageView>(R.id.imgCerrar)
-        val btnComprar = dialogView.findViewById<Button>(R.id.btnComprar)
+        val btnCarrito = dialogView.findViewById<Button>(R.id.btnCarrito)
         val imagenDialog = dialogView.findViewById<ImageView>(R.id.imageDialog)
         val textTitulo = dialogView.findViewById<TextView>(R.id.texttitulo)
         val textMarca = dialogView.findViewById<TextView>(R.id.textmarca)
@@ -152,9 +153,14 @@ class DetalleProductoActivity: AppCompatActivity() {
 
         }
 
-        btnComprar.setOnClickListener {
+        btnCarrito.setOnClickListener {
+            val intent = Intent(this, MenuActivity::class.java).apply {
+                putExtra("valor", 1)
+            }
+            startActivity(intent)
             dialog.dismiss()
         }
+
     }
 
 }
