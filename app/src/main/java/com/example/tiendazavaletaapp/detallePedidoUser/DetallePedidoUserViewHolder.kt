@@ -24,10 +24,10 @@ RecyclerView.ViewHolder(inflater.inflate(R.layout.item_detalle_pedido, viewGroup
     }
 
     fun bind(detallePedido:DetallePedidoUser){
-        textTitulo?.text=detallePedido.TituloItem
-        textCantidad?.text=detallePedido.Cantidad.toString()
-        textPrecioUnit?.text=String.format("%.2f", detallePedido.PrecioUnitario)
-        textCodigo?.text=detallePedido.CodPedido
+        textTitulo?.text=detallePedido.nProducto
+        textCantidad?.text=detallePedido.cantidad.toString()
+        textPrecioUnit?.text=String.format("%.2f", detallePedido.precio)
+        textCodigo?.text=detallePedido.codProducto
 
 
     }

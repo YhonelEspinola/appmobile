@@ -1,6 +1,9 @@
 package com.example.tiendazavaletaapp.detallePedidoUser
 
-data class DetallePedidoUser(val TituloItem:String,
-                             val Cantidad: Int,
-                             val CodPedido:String,
-                             val PrecioUnitario:Double)
+data class DetallePedidoUser(
+    val nProducto:String,
+    val cantidad: Number,
+    val pedidoId:String,
+    val precio: Number,
+    val codProducto:String
+)

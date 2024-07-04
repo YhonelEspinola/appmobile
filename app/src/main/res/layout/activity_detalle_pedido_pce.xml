@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -17,14 +18,14 @@
             android:layout_height="wrap_content"
             android:text="Pedido"
             android:textStyle="bold"
-            android:textSize="20sp"/>
+            android:textSize="17sp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="textEnd"
             android:text="ComercioZavaleta"
-            android:textSize="20sp"/>
+            android:textSize="17sp"/>
 
     </LinearLayout>
 
@@ -43,29 +44,38 @@
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/textCabezal">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Item(1)"
-            android:textSize="20sp" />
+            android:layout_marginTop="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Productos en Total ("
+                android:textSize="17sp" />
+            <TextView
+                android:id="@+id/cantProductos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textSize="17sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=")"
+                android:textSize="17sp" />
+        </LinearLayout>
+
 
         <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nombre de Item(1)"
-            android:textSize="20sp"/>
-
-        <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="P.U: S/12.95"
-            android:textSize="20sp"
-            android:textAlignment="textEnd"/>
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/item_pedido_pce"/>
 
         </LinearLayout>
 
@@ -77,15 +87,24 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="Total"
                 android:textStyle="bold"
-                android:textSize="20sp"/>
+                android:textSize="17sp"/>
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="S/12.95"
-                android:textSize="20sp"
+                android:text="S/"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textAlignment="textEnd"/>
+            <TextView
+                android:id="@+id/textPrecioTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12.95"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:textAlignment="textEnd"/>
 
@@ -113,21 +132,29 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="Direccion de envio"
-            android:textSize="20sp" />
+            android:textSize="17sp" />
 
         <TextView
+            android:id="@+id/textUbicacion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="Bilbo Baggins"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:textStyle="bold"/>
 
         <TextView
+            android:id="@+id/textDirec"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Bag End, The Shire"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/textRef"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bag End, The Shire"
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -150,14 +177,32 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="Envio a Domicilio"
-            android:textSize="20sp" />
+            android:textSize="17sp" />
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Llegada el 8 jul. entre las 8 a.m A 20 p.m"
-            android:textSize="20sp"/>
+            android:layout_marginTop="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Llegaria el "
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/fechaLlegada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8 jul."
+                android:textSize="16sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" entre las 8a.m - 8p.m"
+                android:textSize="16sp"/>
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
@@ -173,7 +218,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Realizar Pedido"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
 
         <Button
             android:id="@+id/btnCancela"
@@ -181,8 +227,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="Cancelar"
-            android:textColor="@color/menu"
-            android:backgroundTint="@color/white"/>
+            android:textColor="@color/white"
+            android:backgroundTint="@color/black"/>
 
     </LinearLayout>
 

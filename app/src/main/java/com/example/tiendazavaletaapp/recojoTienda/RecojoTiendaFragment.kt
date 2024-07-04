@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.tiendazavaletaapp.R
 import com.example.tiendazavaletaapp.detallePedidoPce.DetallePedidoPceActivity
@@ -24,8 +25,15 @@ class RecojoTiendaFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val btnContinuarRecojo : Button = view.findViewById(R.id.btnContinuarRecojo)
+        val textNomApe : TextView = view.findViewById(R.id.textNomApe)
+        val textDni : TextView = view.findViewById(R.id.textDni)
+
+
         btnContinuarRecojo.setOnClickListener {
-            val intent = Intent(activity, DetallePedidoRtActivitty::class.java)
+            val intent = Intent(activity, DetallePedidoRtActivitty::class.java).apply {
+                putExtra("NomApe", textNomApe.text.toString())
+                putExtra("Dni", textDni.text.toString())
+            }
             startActivity(intent)
         }
     }
