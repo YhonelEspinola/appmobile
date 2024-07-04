@@ -6,13 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tiendazavaletaapp.Perfil.PerfilFragment
 import com.example.tiendazavaletaapp.R
+import com.google.firebase.auth.FirebaseAuth
 
 class PedidosUserFragment: Fragment(){
-
+    private var firebaseAuth: FirebaseAuth? = null
+    private lateinit var viewModel: PedidoViewModel
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -24,27 +27,27 @@ class PedidosUserFragment: Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        val listPedidosUser = listOf<PedidosUser>(
-            PedidosUser(true,"DireccionTienda", "01/05/2024", "phh88", 20.0),
-            PedidosUser(false,"DireccionDomicilio", "08/05/2024", "phh99", 20.0),
-            PedidosUser(true,"DireccionTienda", "01/05/2024", "phh88", 20.0),
-            PedidosUser(false,"DireccionDomicilio", "08/05/2024", "phh99", 20.0),
-            PedidosUser(true,"DireccionTienda", "01/05/2024", "phh88", 20.0),
-            PedidosUser(false,"DireccionDomicilio", "08/05/2024", "phh99", 20.0),
-            PedidosUser(true,"DireccionTienda", "01/05/2024", "phh88", 20.0),
-            PedidosUser(false,"DireccionDomicilio", "08/05/2024", "phh99", 20.0),
-        )
+        viewModel = ViewModelProvider(this)[PedidoViewModel::class.java]
 
         val recyclerPedidosUser =view.findViewById<RecyclerView>(R.id.recyclerPedidosUser)
 
-        val adapterPU = PedidosUserAdapter(listPedidosUser)
+        val adapterPU = PedidosUserAdapter()
         recyclerPedidosUser.adapter= adapterPU
         recyclerPedidosUser.layoutManager= LinearLayoutManager(context)
         val retroceder: ImageView = view.findViewById(R.id.retroceder)
 
         retroceder.setOnClickListener {
             requireActivity().onBackPressed()
+        }
+        firebaseAuth = FirebaseAuth.getInstance()
+        val userId = firebaseAuth?.currentUser?.uid
+        viewModel.listPedidos(userId.toString())
+        viewModel.listPedidos.observe(viewLifecycleOwner) {
+
+            if (it.isNotEmpty()) {
+                adapterPU.setDatos(it)
+            }
+
         }
     }
 

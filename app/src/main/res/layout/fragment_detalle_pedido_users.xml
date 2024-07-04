@@ -56,12 +56,13 @@
             android:orientation="horizontal"
             android:layout_marginTop="10dp">
             <TextView
+                android:id="@+id/tipoPedido"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Recojo en tienda:"
                 android:textStyle="bold"/>
             <TextView
-                android:id="@+id/textRecojoTienda"
+                android:id="@+id/textDireccion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Direccion"
@@ -76,10 +77,27 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Fecha de compra:"
+                android:text="Fecha realizado:"
                 android:textStyle="bold"/>
             <TextView
                 android:id="@+id/textFechaCompra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="dd/mm/yyyy"
+                android:gravity="end"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fecha prevista:"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/textFechaEstimada"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="dd/mm/yyyy"
@@ -105,18 +123,74 @@
                 android:gravity="end"/>
         </LinearLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Datos de quien recoje o recibe el pedido:"
+            android:textStyle="bold"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre: " />
+            <TextView
+                android:id="@+id/textNombreApe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Juan"
+                android:gravity="end"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DNI: " />
+            <TextView
+                android:id="@+id/textDni"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12345678"
+                android:gravity="end"/>
+        </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginVertical="10dp"
             android:background="@color/marca" />
-
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="items(2)"
-            android:textStyle="bold"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Productos en total ("
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/textCantProductosTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=")"
+                android:textStyle="bold" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

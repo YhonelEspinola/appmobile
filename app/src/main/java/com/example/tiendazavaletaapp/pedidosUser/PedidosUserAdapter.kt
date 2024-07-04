@@ -3,10 +3,9 @@ package com.example.tiendazavaletaapp.pedidosUser
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.tiendazavaletaapp.pedidos.Pedidos
-import com.example.tiendazavaletaapp.pedidos.PedidosViewHolder
 
-class PedidosUserAdapter (val list:List<PedidosUser>): RecyclerView.Adapter<PedidosUserViewHolder>() {
+class PedidosUserAdapter (): RecyclerView.Adapter<PedidosUserViewHolder>() {
+    private var list= emptyList<PedidosUser>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PedidosUserViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         return PedidosUserViewHolder(inflater,parent)
@@ -19,5 +18,9 @@ class PedidosUserAdapter (val list:List<PedidosUser>): RecyclerView.Adapter<Pedi
     override fun onBindViewHolder(holder: PedidosUserViewHolder, position: Int) {
         val pedidosUser=list[position]
         holder.bind(pedidosUser)
+    }
+    fun setDatos(datos: List<PedidosUser>) {
+        list = datos
+        notifyDataSetChanged()
     }
 }
