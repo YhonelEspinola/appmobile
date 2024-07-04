@@ -8,11 +8,14 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.tiendazavaletaapp.R
-import com.example.tiendazavaletaapp.detallePedidoPce.DetallePedidoPceActivity
 import com.example.tiendazavaletaapp.detallePedidoRt.DetallePedidoRtActivitty
+import com.google.android.material.textfield.TextInputEditText
 
 class RecojoTiendaFragment : Fragment() {
+    private lateinit var viewModel: RenTViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -23,18 +26,35 @@ class RecojoTiendaFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        viewModel = ViewModelProvider(this)[RenTViewModel::class.java]
         val btnContinuarRecojo : Button = view.findViewById(R.id.btnContinuarRecojo)
-        val textNomApe : TextView = view.findViewById(R.id.textNomApe)
-        val textDni : TextView = view.findViewById(R.id.textDni)
+        val textNomApe : TextInputEditText = view.findViewById(R.id.textNomApe)
+        val textDni : TextInputEditText = view.findViewById(R.id.textDni)
 
 
-        btnContinuarRecojo.setOnClickListener {
-            val intent = Intent(activity, DetallePedidoRtActivitty::class.java).apply {
-                putExtra("NomApe", textNomApe.text.toString())
-                putExtra("Dni", textDni.text.toString())
+        viewModel.mensajeError.observe(viewLifecycleOwner, { error ->
+            if (error.isNotEmpty()) {
+                when (error) {
+                    "Ingrese su nombre" -> textNomApe.error = error
+                    "Ingrese su DNI" -> textDni.error = error
+                }
+            } else {
+                textNomApe.error = null
+                textDni.error = null
             }
-            startActivity(intent)
+        })
+        btnContinuarRecojo.setOnClickListener {
+
+            val nombre = textNomApe.text.toString()
+            val dni = textDni.text.toString()
+
+            if (viewModel.validarInfo(nombre, dni)) {
+                val intent = Intent(activity, DetallePedidoRtActivitty::class.java).apply {
+                    putExtra("NomApe", nombre)
+                    putExtra("Dni", dni)
+                }
+                startActivity(intent)
+            }
         }
     }
 
