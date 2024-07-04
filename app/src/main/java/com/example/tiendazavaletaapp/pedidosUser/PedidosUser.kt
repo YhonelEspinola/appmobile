@@ -1,15 +1,21 @@
 package com.example.tiendazavaletaapp.pedidosUser
 
-data class PedidosUser(val EntregaTienda:Boolean,
-                       val Direccion: String,
-                       val FechaCompra:String,
-                       val CodPedido:String,
-                       val Total:Double ){
+import com.google.firebase.Timestamp
+import com.google.type.DateTime
 
-    fun getEntrega(EntregaTienda: Boolean):String{
-        if (EntregaTienda == true){
-            return "Recojo en tienda"
-        } else
-            return "Pago contra entrega"
-    }
+data class PedidosUser(
+    val cantTotalProduct:String,
+    val direccion: String,
+    val dni:String,
+    val email:String,
+    val fecha:Timestamp?,
+    val fechaestimada:String,
+    val nombreApe:String,
+    val referencia:String,
+    val tipodecompra:String,
+    val total:String,
+    val ubicacion:String,
+    val uid:String,
+    val idpedido:String
+){
 }

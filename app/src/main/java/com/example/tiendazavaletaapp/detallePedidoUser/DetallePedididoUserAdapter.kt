@@ -3,8 +3,10 @@ package com.example.tiendazavaletaapp.detallePedidoUser
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.tiendazavaletaapp.carrito.Carrito
 
-class DetallePedididoUserAdapter(val list: List<DetallePedidoUser>):RecyclerView.Adapter<DetallePedidoUserViewHolder>() {
+class DetallePedididoUserAdapter():RecyclerView.Adapter<DetallePedidoUserViewHolder>() {
+    private var list= emptyList<DetallePedidoUser>()
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -22,4 +24,8 @@ class DetallePedididoUserAdapter(val list: List<DetallePedidoUser>):RecyclerView
         holder.bind(detallePedidosUser)
     }
 
+    fun setDatos(datos: List<DetallePedidoUser>) {
+        list = datos
+        notifyDataSetChanged()
+    }
 }

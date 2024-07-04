@@ -6,10 +6,10 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tiendazavaletaapp.R
 import com.example.tiendazavaletaapp.carrito.Carrito
-import com.example.tiendazavaletaapp.login.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.squareup.picasso.Picasso
@@ -112,7 +112,8 @@ class DetalleProductoActivity: AppCompatActivity() {
                     }
                 }
                 .addOnSuccessListener {
-                    Toast.makeText(this, "Producto agregado correctamente", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(this, "Producto agregado correctamente", Toast.LENGTH_SHORT).show()
+                    mostrarDialogoProductoAgregado()
                 }
                 .addOnFailureListener {
                     Toast.makeText(this, "Error al agregar el producto", Toast.LENGTH_SHORT).show()
@@ -121,4 +122,42 @@ class DetalleProductoActivity: AppCompatActivity() {
             Toast.makeText(this, "Error: Usuario no válido", Toast.LENGTH_SHORT).show()
         }
     }
+
+    private fun mostrarDialogoProductoAgregado() {
+        val dialogView = layoutInflater.inflate(R.layout.dialog_add, null)
+        val dialogBuilder = AlertDialog.Builder(this)
+            .setView(dialogView)
+            .setCancelable(true)
+
+        val dialog = dialogBuilder.create()
+        dialog.show()
+
+        val btnCerra = dialogView.findViewById<ImageView>(R.id.imgCerrar)
+        val btnComprar = dialogView.findViewById<Button>(R.id.btnComprar)
+        val imagenDialog = dialogView.findViewById<ImageView>(R.id.imageDialog)
+        val textTitulo = dialogView.findViewById<TextView>(R.id.texttitulo)
+        val textMarca = dialogView.findViewById<TextView>(R.id.textmarca)
+
+
+
+        val nProducto = intent.getStringExtra("nProducto")
+        val marca = intent.getStringExtra("marca")
+        val imgProducto = intent.getStringExtra("imgProducto")
+        textTitulo.text = nProducto
+        textMarca.text = marca
+        Picasso.get().load(imgProducto).into(imagenDialog)
+
+        btnCerra.setOnClickListener {
+            dialog.dismiss()
+
+        }
+
+        btnComprar.setOnClickListener {
+            dialog.dismiss()
+        }
+    }
+
 }
+
+
+
