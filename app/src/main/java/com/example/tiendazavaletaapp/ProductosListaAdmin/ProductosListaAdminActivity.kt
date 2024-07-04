@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tiendazavaletaapp.R
 import com.example.tiendazavaletaapp.gestionAdmid.GestionAdminActivity
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FirebaseFirestore
 
 class ProductosListaAdminActivity: AppCompatActivity() {
@@ -60,8 +61,9 @@ class ProductosListaAdminActivity: AppCompatActivity() {
                     val imgProducto = document.getString("imgProducto") ?: ""
                     val stock = document.getLong("stock")?.toInt() ?: 0
                     val descripcion = document.getString("descripcion") ?: ""
+                    val fecha = document.getTimestamp("fecha")
                     if(document != null){
-                        val modelo=ProductosListaAdmin(nProducto,marca,categoria,codigo,precio,imgProducto,stock,descripcion)
+                        val modelo=ProductosListaAdmin(nProducto,marca,categoria,codigo,precio,imgProducto,stock,descripcion,fecha)
                         listProductosListaAdmin.add((modelo))
                     }
                 }

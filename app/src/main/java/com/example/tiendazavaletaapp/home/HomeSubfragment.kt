@@ -4,8 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tiendazavaletaapp.ProductosListaAdmin.ProductosListaAdmin
@@ -13,10 +16,8 @@ import com.example.tiendazavaletaapp.R
 import com.google.firebase.firestore.FirebaseFirestore
 
 class HomeSubfragment: Fragment() {
-    private  val db= FirebaseFirestore.getInstance()
-    private val colleccion= db.collection("producto")
-    private lateinit var adapterMV: ProductosHomeAdapter
-    private lateinit var adapterR: ProductosHomeAdapter
+    private lateinit var adapterP: PopularAdapter
+    private lateinit var adapterN: ProductosHomeAdapter
     private lateinit var viewModel: ListCategoriaViewModel
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,34 +31,42 @@ class HomeSubfragment: Fragment() {
         viewModel = ViewModelProvider(this)[ListCategoriaViewModel::class.java]
         val recyclerMasVendidos = view.findViewById<RecyclerView>(R.id.recyclerMasVendidos)
         val recyclerRecomendado = view.findViewById<RecyclerView>(R.id.recyclerRecomendado)
+        val verTodo = view.findViewById<TextView>(R.id.verTodo)
 
-        adapterMV = ProductosHomeAdapter()
-        recyclerMasVendidos.adapter=adapterMV
+        adapterP = PopularAdapter()
+        recyclerMasVendidos.adapter=adapterP
         recyclerMasVendidos.layoutManager=
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
 
-        adapterR = ProductosHomeAdapter()
-        recyclerRecomendado.adapter=adapterR
-        recyclerRecomendado.layoutManager=
-            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
+        adapterN = ProductosHomeAdapter()
+        recyclerRecomendado.adapter=adapterN
+        recyclerRecomendado.layoutManager= GridLayoutManager(context,2)
 
-        viewModel.listProductosHomeI("")
+        viewModel.listProductosHomeI()
         viewModel.listProductosMV.observe(viewLifecycleOwner) {
 
             if (it.isNotEmpty()) {
-                adapterMV.setDatos(it)
+                adapterP.setDatos(it)
             }
 
         }
 
-        viewModel.listProductosHomeII("")
-        viewModel.listProductosR.observe(viewLifecycleOwner) {
+        viewModel.listProductosHomeII()
+        viewModel.listProductosN.observe(viewLifecycleOwner) {
 
             if (it.isNotEmpty()) {
-                adapterR.setDatos(it)
+                adapterN.setDatos(it)
             }
 
         }
+        verTodo.setOnClickListener(){
+
+            val transaction = parentFragmentManager.beginTransaction()
+            transaction.replace(R.id.subfragment_home, MasNuevoSubFragment.newInstance())
+            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+            transaction.commit()
+        }
+
     }
 
     companion object{
