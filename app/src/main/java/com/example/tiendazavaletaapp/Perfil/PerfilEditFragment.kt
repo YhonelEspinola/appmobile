@@ -54,7 +54,10 @@ class PerfilEditFragment :Fragment(){
             Toast.makeText(context, "Información actualizada exitosamente", Toast.LENGTH_SHORT).show()
 
             viewModel.actualizarInformacion(nuevoNombre)
+
+            openSubFragment(PerfilFragment.newInstance())
         }
+
         val editPassword: EditText = view.findViewById(R.id.edit_password)
         editPassword.setOnClickListener {
             val intent = Intent(activity, CambiarContraPerfilActivity::class.java)
@@ -65,6 +68,14 @@ class PerfilEditFragment :Fragment(){
         retroceder.setOnClickListener {
             requireActivity().onBackPressed()
         }
+    }
+
+    private fun openSubFragment(fragment: Fragment) {
+        val transaction = parentFragmentManager.beginTransaction()
+        transaction.replace(R.id.fragment_menu, fragment)
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 
     companion object{
