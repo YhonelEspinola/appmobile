@@ -49,7 +49,7 @@ class CreateProductosActivity : AppCompatActivity() {
         val adapter = ArrayAdapter(this, R.layout.item_list_dropdown, items)
         edtCategoria.setAdapter(adapter)
 
-        val itemsMarc = listOf("ARTESCO","EPSON","FABER CASTELL","JUSTUS","PILOT","STABILO","VINIFAN","LAYCONSA","OTRO")
+        val itemsMarc = listOf("ARTESCO","CLASS&WORK","EPSON","FABER CASTELL","JUSTUS","PILOT","STABILO","VINIFAN","LAYCONSA","OTRO")
         val adapterM = ArrayAdapter(this, R.layout.item_list_dropdown, itemsMarc)
         edtMarca.setAdapter(adapterM)
 
