@@ -63,6 +63,8 @@ class DetalleProductoActivity: AppCompatActivity() {
         btnAgregarCarrito.setOnClickListener {
             if (firebaseAuth.currentUser == null) {
                 Toast.makeText(this, "Necesita iniciar sesion", Toast.LENGTH_SHORT).show()
+            }else if(stock == 0){
+                Toast.makeText(this, "No hay stock", Toast.LENGTH_SHORT).show()
             }else{
             agregarAlCarrito(
                 codProducto,
