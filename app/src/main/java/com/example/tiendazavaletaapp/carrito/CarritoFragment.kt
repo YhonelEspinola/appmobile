@@ -100,11 +100,7 @@ class CarritoFragment : Fragment() {
         val btnProcesarCompra: Button = view.findViewById(R.id.btnProcesarCompra)
 
         btnProcesarCompra.setOnClickListener {
-            if(adapterC.itemCount == 0){
-                Toast.makeText(activity, "El carrito está vacío", Toast.LENGTH_SHORT).show()
-            }else {
                 comprobarSesion()
-            }
         }
 
     }
@@ -131,9 +127,12 @@ class CarritoFragment : Fragment() {
 
     private fun comprobarSesion() {
         if (firebaseAuth!!.currentUser == null) {
-            startActivity(Intent(activity, LoginActivity::class.java))
             Toast.makeText(activity, "Inicie sesión para poder seguir con la compra", Toast.LENGTH_SHORT).show()
-        } else {
+        }
+        else if(adapterC.itemCount == 0){
+            Toast.makeText(activity, "El carrito está vacío", Toast.LENGTH_SHORT).show()
+        }
+        else {
             startActivity(Intent(activity, MenuTopActivity::class.java))
         }
     }
