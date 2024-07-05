@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tiendazavaletaapp.R
 import com.google.firebase.firestore.FirebaseFirestore
@@ -41,8 +42,9 @@ class CarritoViewHolder(inflater: LayoutInflater, viewGroup: ViewGroup) : Recycl
         Picasso.get().load(carrito.imgProducto).into(imgCarrito)
 
         btnIncrement?.setOnClickListener {
-            val newQuantity = carrito.cantidad + 1
-            updateCarrito(carrito, newQuantity, adapter)
+            stockAlcanzado(carrito, carrito.cantidad + 1, adapter)
+
+
         }
 
         btnDecrement?.setOnClickListener {
@@ -53,7 +55,25 @@ class CarritoViewHolder(inflater: LayoutInflater, viewGroup: ViewGroup) : Recycl
         }
 
     }
-
+    private fun stockAlcanzado(carrito: Carrito, newQuantity: Int, adapter: CarritoAdapter) {
+        db.collection("producto").document(carrito.codProducto)
+            .get()
+            .addOnSuccessListener { document ->
+                if (document.exists()) {
+                    val stock = document.getLong("stock")?.toInt() ?: 0
+                    if (newQuantity <= stock) {
+                        updateCarrito(carrito, newQuantity, adapter)
+                    } else {
+                        Toast.makeText(itemView.context, "No hay suficiente stock disponible", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    Toast.makeText(itemView.context, "Producto no encontrado", Toast.LENGTH_SHORT).show()
+                }
+            }
+            .addOnFailureListener {
+                Toast.makeText(itemView.context, "Error al obtener el stock", Toast.LENGTH_SHORT).show()
+            }
+    }
     private fun updateCarrito(carrito: Carrito, newQuantity: Int, adapter: CarritoAdapter) {
         val newTotalPrice = newQuantity * carrito.precio
         db.collection("carrito").document(carrito.userId + "_" + carrito.codProducto)

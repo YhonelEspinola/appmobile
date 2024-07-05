@@ -2,13 +2,16 @@ package com.example.tiendazavaletaapp.carrito
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -28,6 +31,7 @@ class CarritoFragment : Fragment() {
     private val db = FirebaseFirestore.getInstance()
     private lateinit var adapterC: CarritoAdapter
     private lateinit var textTotal: TextView
+    private lateinit var timer: CountDownTimer
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -89,17 +93,20 @@ class CarritoFragment : Fragment() {
                     val swipeHandler = SwipeToDeleteCallback(adapterC, db)
                     val itemTouchHelper = ItemTouchHelper(swipeHandler)
                     itemTouchHelper.attachToRecyclerView(recyclerCarrito)
+
+                    tiempoDeEliminacionDelCarrito(userId)
                 }
                 .addOnFailureListener { exception ->
                     Toast.makeText(activity, "Error al obtener el carrito", Toast.LENGTH_SHORT).show()
                 }
         } else {
-            Toast.makeText(activity, "Debe iniciar sesión", Toast.LENGTH_SHORT).show()
+            mostrarDialogoDeError()
         }
 
         val btnProcesarCompra: Button = view.findViewById(R.id.btnProcesarCompra)
 
         btnProcesarCompra.setOnClickListener {
+                timer.cancel()
                 comprobarSesion()
         }
 
@@ -128,6 +135,7 @@ class CarritoFragment : Fragment() {
     private fun comprobarSesion() {
         if (firebaseAuth!!.currentUser == null) {
             Toast.makeText(activity, "Inicie sesión para poder seguir con la compra", Toast.LENGTH_SHORT).show()
+        mostrarDialogoDeError()
         }
         else if(adapterC.itemCount == 0){
             Toast.makeText(activity, "El carrito está vacío", Toast.LENGTH_SHORT).show()
@@ -135,6 +143,54 @@ class CarritoFragment : Fragment() {
         else {
             startActivity(Intent(activity, MenuTopActivity::class.java))
         }
+    }
+
+    fun mostrarDialogoDeError(){
+        val dialogView = layoutInflater.inflate(R.layout.dialog_error, null)
+        val dialogBuilder = AlertDialog.Builder(requireContext())
+            .setView(dialogView)
+            .setCancelable(true)
+
+        val dialog = dialogBuilder.create()
+        dialog.show()
+
+        val textTitulo = dialogView.findViewById<TextView>(R.id.mensaje)
+        val btnCerra = dialogView.findViewById<ImageView>(R.id.imgCerrar)
+        val btnOk = dialogView.findViewById<Button>(R.id.okButton)
+
+
+        textTitulo.text = "Necesita iniciar sesion"
+
+        btnCerra.setOnClickListener {
+            dialog.dismiss()
+
+        }
+
+        btnOk.setOnClickListener{
+            dialog.dismiss()
+        }
+    }
+
+    private fun tiempoDeEliminacionDelCarrito(userId: String) {
+        timer = object : CountDownTimer(300000, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+
+            }
+
+            override fun onFinish() {
+                db.collection("carrito")
+                    .whereEqualTo("userId", userId)
+                    .get()
+                    .addOnSuccessListener { documents ->
+                        for (document in documents) {
+                            document.reference.delete()
+                        }
+                        adapterC.updateList(emptyList())
+                        textTotal.text = "0.00"
+                        Toast.makeText(activity, "Carrito eliminado por inactividad", Toast.LENGTH_SHORT).show()
+                    }
+            }
+        }.start()
     }
 
     companion object {

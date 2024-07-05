@@ -62,7 +62,7 @@ class DetalleProductoActivity: AppCompatActivity() {
 
         btnAgregarCarrito.setOnClickListener {
             if (firebaseAuth.currentUser == null) {
-                Toast.makeText(this, "Necesita iniciar sesion", Toast.LENGTH_SHORT).show()
+                mostrarDialogoDeError()
             }else if(stock == 0){
                 Toast.makeText(this, "No hay stock", Toast.LENGTH_SHORT).show()
             }else{
@@ -163,6 +163,31 @@ class DetalleProductoActivity: AppCompatActivity() {
             dialog.dismiss()
         }
 
+    }
+
+    fun mostrarDialogoDeError(){
+        val dialogView = layoutInflater.inflate(R.layout.dialog_error, null)
+        val dialogBuilder = AlertDialog.Builder(this)
+            .setView(dialogView)
+            .setCancelable(true)
+
+        val dialog = dialogBuilder.create()
+        dialog.show()
+
+        val textTitulo = dialogView.findViewById<TextView>(R.id.mensaje)
+        val btnCerra = dialogView.findViewById<ImageView>(R.id.imgCerrar)
+        val btnOk = dialogView.findViewById<Button>(R.id.okButton)
+
+        textTitulo.text = "Necesita iniciar sesion"
+
+        btnCerra.setOnClickListener {
+            dialog.dismiss()
+
+        }
+
+        btnOk.setOnClickListener{
+            dialog.dismiss()
+        }
     }
 
 }
