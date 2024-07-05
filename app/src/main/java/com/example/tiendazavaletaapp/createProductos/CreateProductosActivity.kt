@@ -45,7 +45,7 @@ class CreateProductosActivity : AppCompatActivity() {
         val edtMarca: AutoCompleteTextView = findViewById(R.id.edtMarca)
         val edtCategoria: AutoCompleteTextView = findViewById(R.id.edtCategoria)
 
-        val items = listOf("Utiles de oficina", "Papeleria", "Arte y Diseño", "Mochilas","Cuadernos, Libretas","Textos Escolares")
+        val items = listOf("Utiles de oficina", "Papeleria", "Arte y Diseño", "Mochilas","Cuadernos","Textos Escolares")
         val adapter = ArrayAdapter(this, R.layout.item_list_dropdown, items)
         edtCategoria.setAdapter(adapter)
 

@@ -63,7 +63,7 @@ class EditProductosActivity :AppCompatActivity(){
         textCodigo = findViewById(R.id.textCodigo)
         btnEditProductos = findViewById(R.id.btnEditProductos)
 
-        val itemsCat = listOf("Utiles de oficina", "Papeleria", "Arte y Diseño", "Mochilas","Cuadernos, Libretas","Textos Escolares")
+        val itemsCat = listOf("Utiles de oficina", "Papeleria", "Arte y Diseño", "Mochilas","Cuadernos","Textos Escolares")
         val adapterC = ArrayAdapter(this, R.layout.item_list_dropdown, itemsCat)
         edtCategoria.setAdapter(adapterC)
 
